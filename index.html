@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hồ Sơ Thiên Hà — Toàn tập 80 kỳ</title>
+<meta name="description" content="Tuyển tập 80 kỳ về lịch sử thiên hà, chương trình không gian bí mật, hòm không gian cổ đại và hồ sơ các chủng tộc ngoài hành tinh. 432 trang PDF, 80 ảnh minh họa.">
+<style>
+  :root{
+    --ink:#0d1421; --ink-2:#28354a; --muted:#66748a;
+    --navy:#16233b; --blue:#2c4a86; --blue-lt:#eef3fa;
+    --gold:#c9a227; --line:#dfe5ee; --bg:#fbfcfe;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Palatino Linotype","Book Antiqua",Georgia,serif;
+    color:var(--ink); background:var(--bg); line-height:1.68;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.ui,.btn,.eyebrow,.badge{font-family:"Avenir Next","Helvetica Neue",Helvetica,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:radial-gradient(circle at 50% 0%,#223b6e 0%,#0d1730 42%,#05080f 100%);
+    color:#fff; padding:72px 0 84px; position:relative; overflow:hidden;
+  }
+  .hero::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background-image:
+      radial-gradient(1.4px 1.4px at 12% 22%, #fff8, transparent),
+      radial-gradient(1.2px 1.2px at 34% 12%, #cfe4ffaa, transparent),
+      radial-gradient(1.6px 1.6px at 68% 18%, #fff9, transparent),
+      radial-gradient(1.1px 1.1px at 84% 30%, #ffe9c4aa, transparent),
+      radial-gradient(1.3px 1.3px at 24% 68%, #fff8, transparent),
+      radial-gradient(1.5px 1.5px at 76% 74%, #dfe9ffaa, transparent),
+      radial-gradient(1.2px 1.2px at 48% 84%, #fff7, transparent);
+  }
+  .hero-inner{
+    position:relative; z-index:2; display:grid; grid-template-columns:1fr 340px;
+    gap:52px; align-items:center;
+  }
+  .eyebrow{
+    font-size:11px; letter-spacing:.34em; text-transform:uppercase;
+    color:#9dc0f0; margin-bottom:22px;
+  }
+  h1{
+    font-size:46px; line-height:1.14; font-weight:600; letter-spacing:-.6px;
+    margin-bottom:20px;
+  }
+  h1 .sub-line{display:block;font-size:20px;font-weight:400;color:#b9cfea;margin-top:14px;letter-spacing:0}
+  .hero p.lede{
+    font-size:16.5px; color:#c3d3e8; max-width:52ch; margin-bottom:32px;
+  }
+  .price-row{display:flex;align-items:baseline;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+  .price{font-family:"Avenir Next",sans-serif;font-size:40px;font-weight:700;color:#fff;letter-spacing:-1px}
+  .price-note{font-size:13px;color:#8fa8c8}
+  .btn{
+    display:inline-block; background:linear-gradient(180deg,#3d6ec4,#28509c);
+    color:#fff; text-decoration:none; font-size:15.5px; font-weight:600;
+    padding:16px 38px; border-radius:8px; letter-spacing:.02em;
+    box-shadow:0 6px 22px rgba(40,80,156,.42); transition:transform .16s, box-shadow .16s;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(40,80,156,.55)}
+  .btn.ghost{
+    background:transparent; border:1px solid rgba(255,255,255,.32);
+    box-shadow:none; padding:14px 30px; font-size:14px; color:#d5e3f5;
+  }
+  .btn.ghost:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.06)}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .cover-shot{
+    border-radius:10px; overflow:hidden; box-shadow:0 22px 60px rgba(0,0,0,.62);
+    border:1px solid rgba(255,255,255,.16); transform:rotate(-1.4deg);
+  }
+  .cover-shot img{width:100%;display:block}
+
+  /* ---------- stats strip ---------- */
+  .stats{
+    background:#fff; border-bottom:1px solid var(--line);
+  }
+  .stats ul{
+    list-style:none; display:grid; grid-template-columns:repeat(4,1fr);
+    text-align:center; padding:30px 0;
+  }
+  .stats li + li{border-left:1px solid var(--line)}
+  .stats .n{
+    font-family:"Avenir Next",sans-serif; font-size:27px; font-weight:700; color:var(--navy);
+    display:block; letter-spacing:-.5px;
+  }
+  .stats .l{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+  /* ---------- sections ---------- */
+  section.block{padding:74px 0}
+  section.block.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  h2.sec{
+    font-size:27px; font-weight:600; color:var(--navy); letter-spacing:-.3px;
+    margin-bottom:12px;
+  }
+  h2.sec + .sec-sub{color:var(--muted);font-size:15.5px;margin-bottom:38px;max-width:60ch}
+
+  /* benefits */
+  .benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 40px;margin-top:8px}
+  .benefit{display:flex;gap:16px}
+  .benefit .ico{
+    flex:0 0 auto; width:38px; height:38px; border-radius:50%;
+    background:var(--blue-lt); color:var(--blue);
+    display:grid; place-items:center; font-family:"Avenir Next",sans-serif;
+    font-size:15px; font-weight:700;
+  }
+  .benefit h3{font-size:15.5px;font-weight:700;color:var(--navy);margin-bottom:5px}
+  .benefit p{font-size:14.5px;color:var(--ink-2)}
+
+  /* series grid */
+  .series-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+  .series-card{
+    background:#fff; border:1px solid var(--line); border-radius:10px; padding:20px 18px;
+    transition:border-color .16s, box-shadow .16s, transform .16s;
+    display:flex; flex-direction:column; min-height:160px;
+  }
+  .series-card p{margin-top:auto}
+  .series-card:hover{border-color:#b8c9e4;box-shadow:0 8px 24px rgba(22,35,59,.08);transform:translateY(-2px)}
+  .series-card .k{
+    font-family:"Avenir Next",sans-serif; font-size:10.5px; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--blue); margin-bottom:9px;
+  }
+  .series-card h4{font-family:"Avenir Next",sans-serif;font-size:14.5px;font-weight:700;
+    color:var(--navy);line-height:1.42;margin-bottom:8px}
+  .series-card p{font-size:13px;color:var(--muted)}
+
+  /* preview / sample pages */
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:8px 0 0}
+  .shot{border-radius:8px;overflow:hidden;border:1px solid var(--line);box-shadow:0 6px 22px rgba(22,35,59,.09)}
+  .shot img{width:100%;display:block}
+  .shot .cap{
+    font-family:"Avenir Next",sans-serif; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-2); padding:11px 14px; background:#fff;
+    border-top:1px solid var(--line);
+  }
+
+  /* buy box */
+  .buy-box{
+    background:#fff; border:1px solid var(--line); border-radius:14px;
+    padding:42px 44px; box-shadow:0 10px 40px rgba(22,35,59,.07);
+    max-width:760px; margin:0 auto;
+  }
+  .buy-box h2{text-align:center;margin-bottom:10px}
+  .buy-box .lead{text-align:center;color:var(--muted);font-size:15px;margin-bottom:32px}
+  table.spec{width:100%;border-collapse:collapse;margin-bottom:30px}
+  table.spec th{
+    width:26%; text-align:left; vertical-align:top; padding:13px 18px 13px 0;
+    font-family:"Avenir Next",sans-serif; font-size:11px; font-weight:700;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--muted);
+    border-bottom:1px solid var(--line);
+  }
+  table.spec td{
+    padding:13px 0; font-size:14.5px; color:var(--ink-2);
+    border-bottom:1px solid var(--line);
+  }
+  table.spec td strong{color:var(--navy)}
+  .buy-final{text-align:center;padding-top:4px}
+  .buy-final .btn{font-size:16.5px;padding:18px 52px}
+  .buy-final .micro{margin-top:14px;font-size:12.5px;color:var(--muted)}
+
+  /* disclaimer */
+  .disclaimer{
+    background:#f5f7fb; border-top:1px solid var(--line); padding:34px 0;
+  }
+  .disclaimer p{
+    font-size:13px; color:var(--muted); max-width:78ch; margin:0 auto; text-align:center;
+    line-height:1.75;
+  }
+  footer{
+    background:var(--navy); color:#9fb2cc; padding:34px 0; text-align:center;
+    font-size:12.5px; letter-spacing:.04em;
+  }
+  footer strong{color:#fff;font-weight:600}
+
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr;gap:34px}
+    .cover-shot{max-width:260px;margin:0 auto;transform:none}
+    h1{font-size:34px}
+    .stats ul{grid-template-columns:repeat(2,1fr);gap:22px 0}
+    .stats li:nth-child(3){border-left:none}
+    .benefits{grid-template-columns:1fr}
+    .series-grid{grid-template-columns:repeat(2,1fr)}
+    .shots{grid-template-columns:1fr;max-width:420px;margin:8px auto 0}
+    .buy-box{padding:30px 22px}
+    section.block{padding:52px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">Tuyển tập 80 kỳ · 8 series</div>
+      <h1>Hồ Sơ Thiên Hà
+        <span class="sub-line">Lịch sử khởi nguyên của gia đình hình người,
+        các nền văn minh thiên hà và di sản di truyền của nhân loại</span>
+      </h1>
+      <p class="lede">
+        Từ Lăng Kính Của Lyra đến các chương trình không gian bí mật, từ những hòm không gian
+        cổ đại nằm dưới băng đến bộ hồ sơ các chủng tộc đang chia sẻ dải Ngân Hà này với chúng ta —
+        gom trọn trong một tập PDF có mục lục bấm nhảy trang.
+      </p>
+      <div class="price-row">
+        <span class="price">299.000đ</span>
+        <span class="price-note">432 trang · 80 ảnh minh họa · tải về ngay</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn" href="https://payhip.com/b/BlK9S" target="_blank" rel="noopener">Mua bản đầy đủ</a>
+        <a class="btn ghost" href="#doc-thu">Đọc thử 3 kỳ miễn phí</a>
+      </div>
+    </div>
+    <div class="cover-shot">
+      <img src="cover.jpg" alt="Bìa sách Hồ Sơ Thiên Hà">
+    </div>
+  </div>
+</header>
+
+<!-- ══ STATS ══ -->
+<div class="stats">
+  <div class="wrap">
+    <ul>
+      <li><span class="n">80</span><span class="l">Kỳ viết</span></li>
+      <li><span class="n">8</span><span class="l">Series</span></li>
+      <li><span class="n">432</span><span class="l">Trang</span></li>
+      <li><span class="n">80</span><span class="l">Ảnh minh họa</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══ BENEFITS ══ -->
+<section class="block">
+  <div class="wrap">
+    <h2 class="sec">Vì sao nên đọc bản này</h2>
+    <p class="sec-sub">Không phải tuyển tập bài rời. Đây là một dòng thời gian liền mạch, được biên tập
+    để đọc từ kỳ đầu tới kỳ cuối.</p>
+    <div class="benefits">
+      <div class="benefit">
+        <div class="ico">01</div>
+        <div><h3>Một mạch kể, không rời rạc</h3>
+        <p>80 kỳ được nối thành 8 tuyến truyện liên tục: khởi nguyên, di cư, công nghệ, dòng máu,
+        lòng đất, không gian bí mật, hòm cổ đại, hồ sơ chủng tộc.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="ico">02</div>
+        <div><h3>Mỗi kỳ có tranh minh họa riêng</h3>
+        <p>80 ảnh minh họa được thiết kế cho từng kỳ, in trên trang mở đầu cùng tiêu đề — không phải
+        ảnh trang trí chung chung.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="ico">03</div>
+        <div><h3>Mục lục bấm nhảy trang</h3>
+        <p>Bấm vào bất kỳ kỳ nào trong mục lục để nhảy thẳng tới trang đó. Đọc trên iPad hay điện thoại
+        đều tiện như sách giấy.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="ico">04</div>
+        <div><h3>Danh mục nguồn tham khảo đầy đủ</h3>
+        <p>28 tài liệu gốc được liệt kê theo nhóm chủ đề, để bạn tự tra cứu sâu hơn nếu muốn.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="ico">05</div>
+        <div><h3>Bản PDF tải về, sở hữu vĩnh viễn</h3>
+        <p>Không cần đăng nhập, không phụ thuộc nền tảng. Tải về một lần, đọc trên mọi thiết bị.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="ico">06</div>
+        <div><h3>Cập nhật series tiếp theo</h3>
+        <p>Người mua bản đầy đủ nhận thông báo khi có series mới, kèm ưu đãi cho người đã mua.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERIES ══ -->
+<section class="block alt">
+  <div class="wrap">
+    <h2 class="sec">Tám series trong tập</h2>
+    <p class="sec-sub">Mỗi series 10 kỳ, cùng một dòng thời gian từ khởi nguyên tới hiện tại.</p>
+    <div class="series-grid">
+      <div class="series-card">
+        <div class="k">Series 1</div>
+        <h4>Tiền Sử Thiên Hà</h4>
+        <p>Lăng Kính Lyra, các Đấng Sáng Lập Paa-Taal, hệ sao Man, thảm họa Lyra.</p>
+      </div>
+      <div class="series-card">
+        <div class="k">Series 2</div>
+        <h4>Hành Trình Thiên Hà</h4>
+        <p>Đại di cư, cuộc chiến Orion, dự án gieo mầm Trái Đất, Atlantis – Lemuria.</p>
+      </div>
+      <div class="series-card">
+        <div class="k">Series 3</div>
+        <h4>Khoa Học &amp; Công Nghệ Ngoài Hành Tinh</h4>
+        <p>Cổng sao, động cơ warp, med-beds, năng lượng điểm không, du hành tâm thức.</p>
+      </div>
+      <div class="series-card">
+        <div class="k">Series 4</div>
+        <h4>Dòng Máu Anunnaki</h4>
+        <p>Nibiru, Enki và Enlil, Sumeria – Ai Cập, Marduk, giải phóng di sản Enki.</p>
+      </div>
+      <div class="series-card">
+        <div class="k">Series 5</div>
+        <h4>Văn Minh Lòng Đất</h4>
+        <p>Agartha, Telos, Shambhala, hồ Vostok, căn cứ Dulce, cửa ngõ cực Bắc.</p>
+      </div>
+      <div class="series-card">
+        <div class="k">Series 6</div>
+        <h4>Chương Trình Không Gian Bí Mật</h4>
+        <p>Solar Warden, thuộc địa Sao Hỏa, LOC, Looking Glass, Dark Fleet.</p>
+      </div>
+      <div class="series-card">
+        <div class="k">Series 7</div>
+        <h4>Hòm Không Gian Cổ Đại</h4>
+        <p>Space Arks dưới Đại Tây Dương, Nam Cực, Phục Sinh, Mặt Trăng, Sao Hỏa.</p>
+      </div>
+      <div class="series-card">
+        <div class="k">Series 8</div>
+        <h4>Hồ Sơ Các Chủng Tộc</h4>
+        <p>Lyra, Pleiades, Arcturus, Andromeda, Sirius, Draco, Greys, Anunnaki.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SAMPLE ══ -->
+<section class="block" id="doc-thu">
+  <div class="wrap">
+    <h2 class="sec">Xem trước bên trong</h2>
+    <p class="sec-sub">Trang mở đầu mỗi kỳ dành riêng cho tiêu đề và tranh minh họa. Nội dung bắt đầu
+    từ trang kế tiếp.</p>
+    <div class="shots">
+      <div class="shot"><img src="shot-1.jpg" alt="Trang bìa"><div class="cap">Bìa sách</div></div>
+      <div class="shot"><img src="shot-2.jpg" alt="Mục lục"><div class="cap">Mục lục bấm nhảy trang</div></div>
+      <div class="shot"><img src="shot-3.jpg" alt="Trang mở đầu kỳ"><div class="cap">Trang mở đầu kỳ</div></div>
+    </div>
+    <p style="margin-top:30px;text-align:center">
+      <a class="btn ghost" style="color:var(--blue);border-color:#b8c9e4" href="ho-so-thien-ha-doc-thu.pdf">
+        Tải bản đọc thử 3 kỳ (miễn phí)
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- ══ BUY ══ -->
+<section class="block alt" id="mua">
+  <div class="wrap">
+    <div class="buy-box">
+      <h2 class="sec">Bản đầy đủ</h2>
+      <p class="lead">80 kỳ · 8 series · 432 trang · tải về ngay sau khi thanh toán</p>
+      <table class="spec">
+        <tr><th>Nội dung</th><td><strong>80 kỳ trong 8 series</strong>, mỗi kỳ 10 kỳ liên tục</td></tr>
+        <tr><th>Dung lượng</th><td>432 trang · A4 · 80 ảnh minh họa</td></tr>
+        <tr><th>Định dạng</th><td>PDF — đọc trên máy tính, iPad, điện thoại, máy đọc sách</td></tr>
+        <tr><th>Mục lục</th><td>Bấm vào từng kỳ để nhảy thẳng tới trang</td></tr>
+        <tr><th>Kèm theo</th><td>Danh mục 28 nguồn tham khảo · Lời mở đầu · Lời cảm ơn</td></tr>
+        <tr><th>Giá</th><td><strong style="font-size:19px">299.000đ</strong> — thanh toán một lần, sở hữu vĩnh viễn</td></tr>
+      </table>
+      <div class="buy-final">
+        <a class="btn" href="https://payhip.com/b/BlK9S" target="_blank" rel="noopener">Mua ngay — 299.000đ</a>
+        <p class="micro">Thanh toán qua thẻ hoặc PayPal · Nhận file tải về ngay lập tức</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DISCLAIMER ══ -->
+<div class="disclaimer">
+  <div class="wrap">
+    <p>
+      <strong>Về nội dung:</strong> Ấn bản này là bản biên soạn và tổng hợp từ nhiều nguồn tài liệu
+      tham khảo khác nhau, trình bày góc nhìn tổng hợp về lịch sử thiên hà và các giả thuyết về nguồn gốc
+      nhân loại. Đây không phải công trình khoa học được bình duyệt và không nhằm khẳng định tính xác thực
+      của mọi chi tiết. Danh mục nguồn tham khảo được liệt kê đầy đủ trong sách.
+    </p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    Biên soạn &amp; tổng hợp: <strong>Jason Dinh — Đinh Trung Thành</strong><br>
+    <span style="opacity:.66;font-size:11.5px">© 2026 · Hồ Sơ Thiên Hà · Toàn tập 80 kỳ</span>
+  </div>
+</footer>
+
+</body>
+</html>
