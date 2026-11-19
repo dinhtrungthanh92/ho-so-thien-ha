@@ -84,10 +84,14 @@
   .vol-card .k{font-family:"Avenir Next",sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
   .vol-card h4{font-size:16px;line-height:1.32;margin-bottom:8px}
   .vol-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px;flex:1}
-  .vbrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;border-top:1px solid var(--line)}
+  .vbrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding-top:14px;border-top:1px solid var(--line)}
+  .vbrow .vprice{flex:0 0 100%;margin-bottom:2px}
   .vprice{font-family:"Avenir Next",sans-serif;font-size:18px;font-weight:700;color:var(--ink)}
-  .vbtn{font-family:"Avenir Next",sans-serif;font-size:12px;font-weight:700;letter-spacing:.04em;color:#fff;background:linear-gradient(180deg,#3d6ec4,#28509c);padding:9px 14px;border-radius:8px;text-decoration:none;white-space:nowrap}
+  .vbtn{font-family:"Avenir Next",sans-serif;font-size:11px;font-weight:700;letter-spacing:.01em;color:#fff;background:linear-gradient(180deg,#3d6ec4,#28509c);padding:9px 8px;border-radius:8px;text-decoration:none;white-space:nowrap;flex:1 1 0;min-width:0;text-align:center}
   .vbtn:hover{background:linear-gradient(180deg,#4577d0,#2c58a8)}
+  .vbtn.ghost{background:#fff;color:#28509c;border:1.5px solid #b8c9e4}
+  .vbtn.ghost:hover{background:#eef3fa;border-color:#8fb0dd}
+  .vbrow{gap:8px}
   /* ---------- bundle ---------- */
   .bundle-box{margin-top:46px;background:linear-gradient(160deg,#16233b 0%,#0b1424 100%);border-radius:18px;padding:38px 40px;color:#fff}
   .bundle-inner{display:grid;grid-template-columns:230px 1fr;gap:36px;align-items:center}
@@ -286,7 +290,7 @@
       </div>
       <div class="hero-actions">
         <a class="btn" href="#mua">Chọn quyển muốn mua</a>
-        <a class="btn ghost" href="#doc-thu">Đọc thử Kỳ 1 — miễn phí</a>
+        <a class="btn ghost" href="#mua">Đọc thử Kỳ 1 miễn phí</a>
       </div>
     </div>
     <div class="cover-shot">
@@ -366,6 +370,7 @@
           <p>Lyra, Paa-Taal, hệ sao Man, 4 chủng tộc nguyên thủy, Đại Di Tản</p>
           <div class="vbrow">
             <span class="vprice">99.000đ</span>
+            <a class="vbtn ghost" href="doc-thu/vol1.pdf" target="_blank" rel="noopener">Đọc thử Kỳ 1</a>
             <a class="vbtn" href="https://payhip.com/b/k8e4L" target="_blank" rel="noopener">Mua quyển này</a>
           </div>
         </div>
@@ -378,6 +383,7 @@
           <p>Đại di cư, Orion, gieo mầm Trái Đất, Atlantis, Greada 1954</p>
           <div class="vbrow">
             <span class="vprice">99.000đ</span>
+            <a class="vbtn ghost" href="doc-thu/vol2.pdf" target="_blank" rel="noopener">Đọc thử Kỳ 1</a>
             <a class="vbtn" href="https://payhip.com/b/uAh4K" target="_blank" rel="noopener">Mua quyển này</a>
           </div>
         </div>
@@ -390,6 +396,7 @@
           <p>Nibiru, Enki – Enlil, 12 chuỗi DNA trên Adamu, Sumeria</p>
           <div class="vbrow">
             <span class="vprice">99.000đ</span>
+            <a class="vbtn ghost" href="doc-thu/vol3.pdf" target="_blank" rel="noopener">Đọc thử Kỳ 1</a>
             <a class="vbtn" href="https://payhip.com/b/KNZse" target="_blank" rel="noopener">Mua quyển này</a>
           </div>
         </div>
@@ -402,6 +409,7 @@
           <p>Agartha, Telos, Shambhala, hồ Vostok, căn cứ Dulce</p>
           <div class="vbrow">
             <span class="vprice">99.000đ</span>
+            <a class="vbtn ghost" href="doc-thu/vol4.pdf" target="_blank" rel="noopener">Đọc thử Kỳ 1</a>
             <a class="vbtn" href="https://payhip.com/b/ckxrH" target="_blank" rel="noopener">Mua quyển này</a>
           </div>
         </div>
@@ -414,6 +422,7 @@
           <p>Solar Warden, Sao Hỏa, LOC, Looking Glass, USSF</p>
           <div class="vbrow">
             <span class="vprice">99.000đ</span>
+            <a class="vbtn ghost" href="doc-thu/vol5.pdf" target="_blank" rel="noopener">Đọc thử Kỳ 1</a>
             <a class="vbtn" href="https://payhip.com/b/ONs2J" target="_blank" rel="noopener">Mua quyển này</a>
           </div>
         </div>
@@ -426,6 +435,7 @@
           <p>Space Arks: Đại Tây Dương, Nam Cực, Phục Sinh, Mặt Trăng</p>
           <div class="vbrow">
             <span class="vprice">99.000đ</span>
+            <a class="vbtn ghost" href="doc-thu/vol6.pdf" target="_blank" rel="noopener">Đọc thử Kỳ 1</a>
             <a class="vbtn" href="https://payhip.com/b/Co9Xq" target="_blank" rel="noopener">Mua quyển này</a>
           </div>
         </div>
@@ -438,6 +448,7 @@
           <p>122 chủng tộc, mỗi loài một chân dung riêng</p>
           <div class="vbrow">
             <span class="vprice">99.000đ</span>
+            <a class="vbtn ghost" href="doc-thu/vol7.pdf" target="_blank" rel="noopener">Đọc thử Kỳ 1</a>
             <a class="vbtn" href="https://payhip.com/b/FfJKj" target="_blank" rel="noopener">Mua quyển này</a>
           </div>
         </div>
@@ -446,10 +457,11 @@
         <img src="vols/vol8.jpg" alt="Quyển 8 — Khoa Học &amp; Công Nghệ" loading="lazy">
         <div class="vb">
           <div class="k">Quyển 8 · 10 kỳ · 131 trang</div>
-          <h4>Khoa Học &amp; Công Nghệ</h4>
+          <h4>Khoa Học &amp; Công Nghệ Ngoài Hành Tinh</h4>
           <p>Cổng sao, warp, phi thuyền sinh học, med-beds, Merkaba</p>
           <div class="vbrow">
             <span class="vprice">99.000đ</span>
+            <a class="vbtn ghost" href="doc-thu/vol8.pdf" target="_blank" rel="noopener">Đọc thử Kỳ 1</a>
             <a class="vbtn" href="https://payhip.com/b/J6M2o" target="_blank" rel="noopener">Mua quyển này</a>
           </div>
         </div>
@@ -477,75 +489,7 @@
   </div>
 </section>
 
-<!-- ══ SAMPLE ══ -->
-<section class="block" id="doc-thu">
-  <div class="wrap">
-    <h2 class="sec">Đọc thử miễn phí — Kỳ 1 của mỗi quyển</h2>
-    <p class="sec-sub">Tám bản đọc thử, mỗi bản là <strong>KỲ 1 trọn vẹn</strong> của một quyển — đủ trang mở đầu,
-    tranh minh họa và toàn bộ nội dung kỳ đó. Tải bao nhiêu cũng được, không cần đăng ký.</p>
-    <div class="sample-grid">
-      <a class="sample-card" href="doc-thu/vol1.pdf" target="_blank" rel="noopener">
-        <img src="vols/vol1.jpg" alt="Quyển 1 — Tiền Sử Thiên Hà" loading="lazy">
-        <div class="sb"><div class="k">Quyển 1 · Kỳ 1</div>
-        <h4>Tiền Sử Thiên Hà</h4>
-        <p>Lyra, Paa-Taal, hệ sao Man, thảm họa Lyra</p>
-        <span class="dl">Tải kỳ 1 đọc thử ↓</span></div>
-      </a>
-      <a class="sample-card" href="doc-thu/vol2.pdf" target="_blank" rel="noopener">
-        <img src="vols/vol2.jpg" alt="Quyển 2 — Hành Trình Thiên Hà" loading="lazy">
-        <div class="sb"><div class="k">Quyển 2 · Kỳ 1</div>
-        <h4>Hành Trình Thiên Hà</h4>
-        <p>Đại di cư, Orion, gieo mầm Trái Đất, Atlantis</p>
-        <span class="dl">Tải kỳ 1 đọc thử ↓</span></div>
-      </a>
-      <a class="sample-card" href="doc-thu/vol3.pdf" target="_blank" rel="noopener">
-        <img src="vols/vol3.jpg" alt="Quyển 3 — Dòng Máu Anunnaki" loading="lazy">
-        <div class="sb"><div class="k">Quyển 3 · Kỳ 1</div>
-        <h4>Dòng Máu Anunnaki</h4>
-        <p>Nibiru, Enki – Enlil, 12 chuỗi DNA, Sumeria</p>
-        <span class="dl">Tải kỳ 1 đọc thử ↓</span></div>
-      </a>
-      <a class="sample-card" href="doc-thu/vol4.pdf" target="_blank" rel="noopener">
-        <img src="vols/vol4.jpg" alt="Quyển 4 — Bí Ẩn Văn Minh Lòng Đất" loading="lazy">
-        <div class="sb"><div class="k">Quyển 4 · Kỳ 1</div>
-        <h4>Bí Ẩn Văn Minh Lòng Đất</h4>
-        <p>Agartha, Telos, Shambhala, căn cứ Dulce</p>
-        <span class="dl">Tải kỳ 1 đọc thử ↓</span></div>
-      </a>
-      <a class="sample-card" href="doc-thu/vol5.pdf" target="_blank" rel="noopener">
-        <img src="vols/vol5.jpg" alt="Quyển 5 — Chương Trình Không Gian Bí Mật" loading="lazy">
-        <div class="sb"><div class="k">Quyển 5 · Kỳ 1</div>
-        <h4>Chương Trình Không Gian Bí Mật</h4>
-        <p>Solar Warden, Sao Hỏa, LOC, Looking Glass</p>
-        <span class="dl">Tải kỳ 1 đọc thử ↓</span></div>
-      </a>
-      <a class="sample-card" href="doc-thu/vol6.pdf" target="_blank" rel="noopener">
-        <img src="vols/vol6.jpg" alt="Quyển 6 — Hòm Không Gian Cổ Đại" loading="lazy">
-        <div class="sb"><div class="k">Quyển 6 · Kỳ 1</div>
-        <h4>Hòm Không Gian Cổ Đại</h4>
-        <p>Space Arks: Đại Tây Dương, Nam Cực, Mặt Trăng</p>
-        <span class="dl">Tải kỳ 1 đọc thử ↓</span></div>
-      </a>
-      <a class="sample-card" href="doc-thu/vol7.pdf" target="_blank" rel="noopener">
-        <img src="vols/vol7.jpg" alt="Quyển 7 — Hồ Sơ Các Chủng Tộc" loading="lazy">
-        <div class="sb"><div class="k">Quyển 7 · Kỳ 1</div>
-        <h4>Hồ Sơ Các Chủng Tộc</h4>
-        <p>122 chủng tộc, mỗi loài một chân dung</p>
-        <span class="dl">Tải kỳ 1 đọc thử ↓</span></div>
-      </a>
-      <a class="sample-card" href="doc-thu/vol8.pdf" target="_blank" rel="noopener">
-        <img src="vols/vol8.jpg" alt="Quyển 8 — Khoa Học &amp; Công Nghệ" loading="lazy">
-        <div class="sb"><div class="k">Quyển 8 · Kỳ 1</div>
-        <h4>Khoa Học &amp; Công Nghệ</h4>
-        <p>Cổng sao, warp, med-beds, Merkaba</p>
-        <span class="dl">Tải kỳ 1 đọc thử ↓</span></div>
-      </a>
-    </div>
-    <p style="margin-top:32px;text-align:center;font-size:13.5px;color:var(--muted)">
-      Thích kỳ 1? Quyển đầy đủ gồm 10 kỳ — <a href="#mua" style="color:var(--blue)">xem giá 99.000đ/quyển</a>
-    </p>
-  </div>
-</section>
+
 
 <!-- ══ BUY ══ -->
 <section class="block" id="toan-tap">
