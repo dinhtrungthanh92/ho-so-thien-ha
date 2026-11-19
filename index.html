@@ -90,14 +90,16 @@
   .vbtn:hover{background:linear-gradient(180deg,#4577d0,#2c58a8)}
   /* ---------- bundle ---------- */
   .bundle-box{margin-top:46px;background:linear-gradient(160deg,#16233b 0%,#0b1424 100%);border-radius:18px;padding:38px 40px;color:#fff}
+  .bundle-inner{display:grid;grid-template-columns:230px 1fr;gap:36px;align-items:center}
+  .bundle-cover img{display:block;width:100%;border-radius:10px;box-shadow:0 14px 40px rgba(0,0,0,.45)}
   .bundle-h{font-size:24px;margin-bottom:12px;color:#fff}
   .bundle-p{font-size:14.5px;color:#b9cfea;line-height:1.7;margin-bottom:26px;max-width:62ch}
   .bundle-p strong{color:#fff}
-  .bundle-row{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+  .bundle-row{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-bottom:26px}
   .bundle-price{font-family:"Avenir Next",sans-serif}
   .bp-old{font-size:17px;color:#7f93b0;text-decoration:line-through;margin-right:10px}
   .bp-new{font-size:34px;font-weight:700;color:#fff;letter-spacing:-.5px}
-  .bundle-note{margin-top:22px;font-size:12.5px;color:#8fa8c8}
+  .bundle-note{margin-top:0;font-size:13px;color:#a5bcd8;line-height:1.7}
   .bundle-note a{color:#9dc0f0}
   /* ---------- sample cards ---------- */
   .sample-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px}
@@ -249,6 +251,8 @@
     .sample-grid{grid-template-columns:repeat(2,1fr)}
     .vol-grid{grid-template-columns:repeat(2,1fr)}
     .bundle-box{padding:28px 22px}
+    .bundle-inner{grid-template-columns:1fr;gap:24px}
+    .bundle-cover{max-width:220px;margin:0 auto}
     .buy-box{padding:30px 22px}
     section.block{padding:52px 0}
     .hero-actions{flex-direction:column;align-items:stretch;gap:12px}
@@ -453,15 +457,22 @@
     </div>
 
     <div class="bundle-box">
-      <h3 class="bundle-h">Hoặc mua trọn bộ 8 quyển</h3>
-      <p class="bundle-p">80 kỳ · 8 series · 834 trang · 549 ảnh minh họa · 122 chủng tộc.
-      Tiết kiệm <strong>293.000đ</strong> so với mua lẻ từng quyển.</p>
-      <div class="bundle-row">
-        <div class="bundle-price"><span class="bp-old">792.000đ</span> <span class="bp-new">499.000đ</span></div>
-        <a class="btn" href="https://payhip.com/b/BlK9S" target="_blank" rel="noopener">Mua trọn bộ — 499.000đ</a>
+      <div class="bundle-inner">
+        <div class="bundle-cover">
+          <img src="cover-full.jpg" alt="Hồ Sơ Thiên Hà — bản đầy đủ 80 kỳ">
+        </div>
+        <div class="bundle-text">
+          <h3 class="bundle-h">Hoặc mua trọn bộ 8 quyển</h3>
+          <p class="bundle-p">80 kỳ · 8 series · 834 trang · 549 ảnh minh họa · 122 chủng tộc.
+          Tiết kiệm <strong>293.000đ</strong> so với mua lẻ từng quyển.</p>
+          <div class="bundle-row">
+            <div class="bundle-price"><span class="bp-old">792.000đ</span> <span class="bp-new">499.000đ</span></div>
+            <a class="btn" href="https://payhip.com/b/BlK9S" target="_blank" rel="noopener">Mua trọn bộ — 499.000đ</a>
+          </div>
+          <p class="bundle-note">Bản full gộp cả 80 kỳ vào một PDF duy nhất — mục lục bấm nhảy trang,
+          đọc liền mạch từ Tiền Sử Thiên Hà tới Khoa Học &amp; Công Nghệ.</p>
+        </div>
       </div>
-      <p class="bundle-note">Bản full gộp cả 80 kỳ vào một PDF duy nhất — mục lục bấm nhảy trang,
-      đọc liền mạch từ Tiền Sử Thiên Hà tới Khoa Học &amp; Công Nghệ.</p>
     </div>
   </div>
 </section>
