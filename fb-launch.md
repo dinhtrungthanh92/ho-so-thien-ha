@@ -4,25 +4,23 @@
 
 ## BẢN 1 — Giới thiệu chung (dùng cho page lớn, đăng kèm ảnh bìa)
 
-🌌 **HỒ SƠ THIÊN HÀ — thư viện chuyên đề miễn phí, 90 kỳ, đọc online không cần đăng ký**
+🌌 **HỒ SƠ THIÊN HÀ — 90 kỳ, đọc miễn phí, không cần đăng ký**
 
-Có một câu hỏi loài người đã hỏi suốt hàng nghìn năm: **chúng ta đến từ đâu?**
+Chúng ta đến từ đâu? Không phải theo nghĩa triết học — mà trong từng sợi DNA của bạn, có ký ức gì?
 
-Không phải theo nghĩa triết học. Mà theo nghĩa sinh học — trong từng sợi DNA của bạn, có ký ức gì?
+Tôi gom 9 chuyên đề, 90 kỳ thành một dòng thời gian liền mạch:
 
-Tôi gom 9 chuyên đề, 90 kỳ viết thành một dòng thời gian liền mạch, đưa lên web đọc miễn phí:
-
-🛸 **1. Tiền Sử Thiên Hà** — Lăng Kính Lyra, Liên minh Paa-Taal, Kỷ nguyên vàng 40 triệu năm rồi thảm họa Lyra
-🚀 **2. Hành Trình Thiên Hà** — Cuộc Đại Di Cư, chiến tranh Orion, dự án gieo mầm Trái Đất với 22 mã gen
-🧬 **3. Dòng Máu Anunnaki** — Nibiru, hai nhánh Enki – Enlil, cuộc chiến Sumeria – Ai Cập
-🕳 **4. Văn Minh Lòng Đất** — Agartha, Telos dưới núi Shasta, Shambhala, hồ Vostok, căn cứ Dulce
+🛸 **1. Tiền Sử Thiên Hà** — Lăng Kính Lyra, Liên minh Paa-Taal, Kỷ nguyên vàng 40 triệu năm, thảm họa Lyra và Hiệp ước cứu dân Hoàng gia Taal
+🚀 **2. Hành Trình Thiên Hà** — Cuộc Đại Di Cư, chiến tranh Orion, dự án gieo mầm Trái Đất với 22 mã gen, Atlantis–Lemuria, Hiệp định Greada 1954
+🧬 **3. Dòng Máu Anunnaki** — Nibiru, hai nhánh Enki – Enlil, cuộc chiến Sumeria – Ai Cập, Marduk và Babylon
+🕳 **4. Văn Minh Lòng Đất** — Agartha, Telos dưới núi Shasta, Shambhala, hồ Vostok, căn cứ ngầm Dulce
 🌕 **5. Chương Trình Không Gian Bí Mật** — Solar Warden, thuộc địa Sao Hỏa, trạm Mặt Trăng, Looking Glass
-🏺 **6. Hòm Không Gian Cổ Đại** — di sản lưu trữ dưới Đại Tây Dương, Nam Cực, đảo Phục Sinh
-👽 **7. Hồ Sơ Các Chủng Tộc** — Lyra, Pleiades, Arcturus, Sirius, Draco, Greys, hoàng gia Anunnaki
-⚡ **8. Khoa Học & Công Nghệ** — cổng sao, động cơ warp, med-beds, năng lượng điểm không
-🧘 **9. Cẩm Nang Tâm Thức** — tuyến tùng, luân xa, sóng não, DNA 12 sợi, thể vía, tần số 5D
+🏺 **6. Hòm Không Gian Cổ Đại** — di sản lưu trữ dưới Đại Tây Dương, Nam Cực, đảo Phục Sinh, Mặt Trăng
+👽 **7. Hồ Sơ Các Chủng Tộc** — Lyra, Pleiades, Arcturus, Sirius, Ciakahrr, 14 loại Greys, hoàng gia Anunnaki
+⚡ **8. Khoa Học & Công Nghệ** — cổng sao, warp lượng tử, med-beds, năng lượng điểm không, vũ khí tần số
+🧘 **9. Cẩm Nang Tâm Thức** — tuyến tùng, 7 luân xa, sóng não, DNA 12 sợi, thể vía, Merkaba, tần số 5D
 
-Mỗi kỳ 2.000–3.000 từ, đọc khoảng 10 phút, có sơ đồ minh họa riêng. Đọc từ kỳ 1 tới kỳ 90, hoặc nhảy vào bất kỳ chủ đề nào bạn tò mò.
+Mỗi kỳ 10 phút đọc, có sơ đồ minh họa riêng. Đọc tuần tự hoặc nhảy vào chủ đề bạn tò mò.
 
 **Không bán gì. Không thu phí. Không cần đăng ký.**
 
