@@ -87,7 +87,7 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head=''):
 <footer class="site-foot">
   <div class="wrap">
     <p><strong>Hồ Sơ Thiên Hà</strong> — thư viện chuyên đề miễn phí về lịch sử thiên hà, di sản di truyền và tâm thức vũ trụ.</p>
-    <p>Tổng hợp &amp; biên soạn: <strong>Đinh Trung Thành</strong> (Jason Dinh).</p>
+    <p>Tổng hợp &amp; biên soạn: <strong>Đinh Trung Thành</strong> (Jason Dinh) · <a href="mailto:dinhtrungthanh92@gmail.com">dinhtrungthanh92@gmail.com</a></p>
     <p class="fine">9 chuyên đề · {len(arts)} kỳ · nội dung biên soạn và tổng hợp. Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu và mở rộng nhận thức.</p>
   </div>
 </footer>
@@ -266,6 +266,7 @@ about = f'''<div class="wrap block prose-page">
 <p><strong>Đinh Trung Thành</strong> (Jason Dinh) — người sáng lập và biên soạn toàn bộ thư viện này.</p>
 <p>Hơn ba năm đọc, đối chiếu và hệ thống hóa hàng trăm nguồn tài liệu rời rạc — hồ sơ giải mật, văn bản cổ, truyền tin thiên hà, tài liệu nghiên cứu tâm thức — anh ghép chúng thành một dòng thời gian có đầu có cuối, viết lại bằng tiếng Việt mạch lạc, bổ sung sơ đồ minh họa cho từng kỳ, rồi đưa lên web để bất kỳ ai cũng đọc được miễn phí.</p>
 <p>Mục tiêu không phải thuyết phục người đọc tin vào một quan điểm, mà là trao cho họ một bản đồ đầy đủ để tự đối chiếu, tự kiểm chứng và tự đặt câu hỏi.</p>
+<p>Liên hệ, góp ý hoặc báo lỗi nội dung: <a href="mailto:dinhtrungthanh92@gmail.com">dinhtrungthanh92@gmail.com</a></p>
 <h2>Về thư viện</h2>
 <p><strong>Hồ Sơ Thiên Hà</strong> là một thư viện chuyên đề trực tuyến, chia sẻ miễn phí các nội dung về lịch sử thiên hà, di sản di truyền của loài người, các nền văn minh cổ đại và những phương pháp mở rộng nhận thức — được biên soạn thành 9 chuyên đề với {len(arts)} kỳ, sắp xếp theo một dòng thời gian liền mạch.</p>
 <h2>Cách đọc</h2>

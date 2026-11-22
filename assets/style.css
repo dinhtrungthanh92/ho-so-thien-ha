@@ -126,6 +126,8 @@ h1.page{font-size:clamp(30px,4.4vw,44px);letter-spacing:-.8px;font-weight:600;li
 /* footer */
 .site-foot{border-top:1px solid var(--line);background:#fff;padding:38px 0;margin-top:40px}
 .site-foot p{font-size:13.5px;color:var(--ink2);max-width:70ch;margin-bottom:8px}
+.site-foot a{color:var(--blue);text-decoration:none}
+.site-foot a:hover{text-decoration:underline}
 .site-foot .fine{font-size:12px;color:var(--muted);line-height:1.65}
 
 @media(max-width:720px){
