@@ -17,6 +17,7 @@ for _r in arts:
     _r['nwords'] = len(_t.split())
     _r['lead'] = _r.get('lead') or (_t[:260].rsplit(' ', 1)[0] + '…')
     _r.setdefault('cover', _r['imgs'][0] if _r['imgs'] else 'assets/img/series/vol%d.jpg' % _r['series'])
+    _r['path'] = 'series/s%d/%02d-%s' % (_r['series'], _r['ky'], _r['slug'])
     _r.setdefault('nfig', max(0, len(_r['imgs']) - 1))
 
 by_ky = {r['ky']: r for r in arts}
@@ -106,7 +107,7 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head='', comments=Fa
 </html>'''
 
 def card(r, r_=''):
-    return f'''<a class="card" href="{r_}ky/{r['slug']}/">
+    return f'''<a class="card" href="{r_}{r['path']}/">
   <span class="chip">Kỳ {r['ky']}</span>
   <h3>{esc(r['title'])}</h3>
   <p>{esc(r['lead'])}</p>
@@ -169,7 +170,7 @@ for s in S_ORDER:
     name, sub = SERIES[s]
     prev_s = S_ORDER[S_ORDER.index(s) - 1] if S_ORDER.index(s) > 0 else None
     next_s = S_ORDER[S_ORDER.index(s) + 1] if S_ORDER.index(s) < len(S_ORDER) - 1 else None
-    kylist = ''.join(f'''<li><a href="../../ky/{r['slug']}/">
+    kylist = ''.join(f'''<li><a href="../../{r['path']}/">
       <span class="chip">Kỳ {r['ky']}</span>
       <h3>{esc(r['title'])}</h3>
       <p>{esc(r['lead'])}</p>
@@ -205,7 +206,7 @@ for r in arts:
 
     imgs = r['imgs']
     # opener cover image (first) + distribute the rest evenly between <h2> sections
-    cover = f'<figure class="art-fig"><img src="../../{imgs[0]}" alt="{esc(r["title"])}" loading="lazy"></figure>' if imgs else ''
+    cover = f'<figure class="art-fig"><img src="../../../{imgs[0]}" alt="{esc(r["title"])}" loading="lazy"></figure>' if imgs else ''
     figs_head = cover
     rest = imgs[1:]
     body_html = r['body']
@@ -219,7 +220,7 @@ for r in arts:
             blocks.append(cur); cur = parts[i] + parts[i + 1]; i += 2
         blocks.append(cur)
         if len(blocks) <= 1:
-            fig = ''.join(f'<figure class="art-fig"><img src="../../{i}" alt="{esc(r["title"])} — minh họa {n}" loading="lazy"></figure>' for n, i in enumerate(rest, 2))
+            fig = ''.join(f'<figure class="art-fig"><img src="../../../{i}" alt="{esc(r["title"])} — minh họa {n}" loading="lazy"></figure>' for n, i in enumerate(rest, 2))
             body_html = body_html + fig
         else:
             per = max(1, len(rest) // (len(blocks) - 1)) if len(blocks) > 1 else 1
@@ -229,19 +230,19 @@ for r in arts:
                 k += len(take)
                 out.append(blk)
                 for n, src in enumerate(take, 1):
-                    out.append(f'<figure class="art-fig"><img src="../../{src}" alt="{esc(r["title"])}" loading="lazy"></figure>')
+                    out.append(f'<figure class="art-fig"><img src="../../../{src}" alt="{esc(r["title"])}" loading="lazy"></figure>')
             leftover = rest[k:]
             if leftover:
                 out.append('<div class="gwrap">' + ''.join(
-                    f'<figure><img src="../../{src}" alt="{esc(r["title"])}" loading="lazy"></figure>' for src in leftover) + '</div>')
+                    f'<figure><img src="../../../{src}" alt="{esc(r["title"])}" loading="lazy"></figure>' for src in leftover) + '</div>')
             body_html = ''.join(out)
     pager = '<div class="pager">'
-    if prev_a: pager += f'<a class="pbtn" href="../../ky/{prev_a["slug"]}/"><small>Kỳ trước</small><b>Kỳ {prev_a["ky"]} — {esc(prev_a["title"])[:70]}</b></a>'
-    if next_a: pager += f'<a class="pbtn next" href="../../ky/{next_a["slug"]}/"><small>Kỳ tiếp</small><b>Kỳ {next_a["ky"]} — {esc(next_a["title"])[:70]}</b></a>'
+    if prev_a: pager += f'<a class="pbtn" href="../../../{prev_a["path"]}/"><small>Kỳ trước</small><b>Kỳ {prev_a["ky"]} — {esc(prev_a["title"])[:70]}</b></a>'
+    if next_a: pager += f'<a class="pbtn next" href="../../../{next_a["path"]}/"><small>Kỳ tiếp</small><b>Kỳ {next_a["ky"]} — {esc(next_a["title"])[:70]}</b></a>'
     pager += '</div>'
 
     body = f'''<div class="wrap article">
-  <p class="crumb"><a href="../../">Trang chủ</a> / <a href="../../series/s{s}/">Chuyên đề {s}: {esc(name)}</a> / Kỳ {r['ky']}</p>
+  <p class="crumb"><a href="../../../">Trang chủ</a> / <a href="../../">Chuyên đề {s}: {esc(name)}</a> / Kỳ {r['ky']}</p>
   <header class="art-head">
     <p class="eyebrow">Chuyên đề {s} · Kỳ {r['ky']} / {len(arts)}</p>
     <h1>{esc(r['title'])}</h1>
@@ -262,11 +263,11 @@ for r in arts:
       <div class="cm-actions"><button type="submit">Gửi bình luận</button><span class="cm-status"></span></div>
     </form>
   </section>
-  <p class="center"><a class="btn ghost" href="../../muc-luc/">Toàn bộ mục lục</a></p>
+  <p class="center"><a class="btn ghost" href="../../../muc-luc/">Toàn bộ mục lục</a></p>
 </div>'''
-    write(f'ky/{r["slug"]}/index.html', layout(
-        f'Kỳ {r["ky"]}: {strip(r["title"])} — {name}', strip(r['lead']), body, depth=2,
-        canonical=f'/ky/{r["slug"]}/',
+    write(f'{r["path"]}/index.html', layout(
+        f'Kỳ {r["ky"]}: {strip(r["title"])} — {name}', strip(r['lead']), body, depth=3,
+        canonical=f'/{r["path"]}/',
         extra_head=f'<meta property="og:image" content="{SITE}/{imgs[0] if imgs else "assets/img/series/vol"+str(s)+".jpg"}">',
         comments=True))
 
@@ -276,7 +277,7 @@ for s in S_ORDER:
     rows = [r for r in arts if r['series'] == s]
     toc += f'''<section class="toc-sec">
   <h2><a href="../series/s{s}/">Chuyên đề {s} — {esc(SERIES[s][0])}</a> <small>{len(rows)} kỳ</small></h2>
-  <ol>{''.join(f'<li><a href="../ky/{r["slug"]}/"><span class="toc-num">{r["ky"]}</span> {esc(r["title"])}</a></li>' for r in rows)}</ol>
+  <ol>{''.join(f'<li><a href="../{r["path"]}/"><span class="toc-num">{r["ky"]}</span> {esc(r["title"])}</a></li>' for r in rows)}</ol>
 </section>'''
 toc += '</div>'
 write('muc-luc/index.html', layout(f'Mục lục {len(arts)} kỳ — Hồ Sơ Thiên Hà', f'Danh sách đầy đủ {len(arts)} kỳ thuộc 9 chuyên đề.', toc, depth=1, canonical='/muc-luc/'))
@@ -304,7 +305,7 @@ write('gioi-thieu/index.html', layout('Giới thiệu — Hồ Sơ Thiên Hà', 
 # ── 404, sitemap, robots ─────────────────────────────────────
 write('404.html', layout('Không tìm thấy trang — Hồ Sơ Thiên Hà', 'Trang không tồn tại.',
       '<div class="wrap block center"><h1 class="page">404</h1><p>Trang này không tồn tại. <a href="/">Về trang chủ</a> hoặc <a href="/muc-luc/">xem mục lục</a>.</p></div>', depth=0))
-urls = ['/', '/series/', '/muc-luc/', '/gioi-thieu/'] + [f'/series/s{s}/' for s in S_ORDER] + [f'/ky/{r["slug"]}/' for r in arts]
+urls = ['/', '/series/', '/muc-luc/', '/gioi-thieu/'] + [f'/series/s{s}/' for s in S_ORDER] + [f'/{r["path"]}/' for r in arts]
 today = datetime.date.today().isoformat()
 sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 for u in urls:
