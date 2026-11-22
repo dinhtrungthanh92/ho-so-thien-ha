@@ -253,23 +253,12 @@ for r in arts:
 {body_html}
   </div>
   {pager}
-  <section class="comments" id="comments" data-slug="{r['slug']}">
-    <h2>Bình luận</h2>
-    <p class="cm-hint">Chia sẻ cảm nhận, câu hỏi hoặc tài liệu đối chiếu. Không cần đăng nhập.</p>
-    <div class="cm-list"><p class="cm-empty">Đang tải…</p></div>
-    <form>
-      <input name="name" type="text" placeholder="Tên của bạn" maxlength="60" required>
-      <textarea name="body" rows="4" placeholder="Viết bình luận…" maxlength="3000" required></textarea>
-      <div class="cm-actions"><button type="submit">Gửi bình luận</button><span class="cm-status"></span></div>
-    </form>
-  </section>
   <p class="center"><a class="btn ghost" href="../../../muc-luc/">Toàn bộ mục lục</a></p>
 </div>'''
     write(f'{r["path"]}/index.html', layout(
         f'Kỳ {r["ky"]}: {strip(r["title"])} — {name}', strip(r['lead']), body, depth=3,
         canonical=f'/{r["path"]}/',
-        extra_head=f'<meta property="og:image" content="{SITE}/{imgs[0] if imgs else "assets/img/series/vol"+str(s)+".jpg"}">',
-        comments=True))
+        extra_head=f'<meta property="og:image" content="{SITE}/{imgs[0] if imgs else "assets/img/series/vol"+str(s)+".jpg"}">'))
 
 # ── table of contents ────────────────────────────────────────
 toc = f'<div class="wrap block"><h1 class="page">Mục lục — {len(arts)} kỳ</h1><p class="sub">Toàn bộ thư viện, xếp theo chuyên đề và thứ tự đọc.</p>'
