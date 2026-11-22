@@ -163,7 +163,7 @@ for s in S_ORDER:
     name, sub = SERIES[s]
     prev_s = S_ORDER[S_ORDER.index(s) - 1] if S_ORDER.index(s) > 0 else None
     next_s = S_ORDER[S_ORDER.index(s) + 1] if S_ORDER.index(s) < len(S_ORDER) - 1 else None
-    kylist = ''.join(f'''<li><a href="../ky/{r['slug']}/">
+    kylist = ''.join(f'''<li><a href="../../ky/{r['slug']}/">
       <span class="chip">Kỳ {r['ky']}</span>
       <h3>{esc(r['title'])}</h3>
       <p>{esc(r['lead'])}</p>
