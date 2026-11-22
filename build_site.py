@@ -82,6 +82,7 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head='', comments=Fa
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <link rel="stylesheet" href="{r}assets/style.css">
 <link rel="icon" href="{r}assets/favicon.svg" type="image/svg+xml">
+<script src="{r}assets/no-copy.js" defer></script>
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"WebSite","name":"Hồ Sơ Thiên Hà","url":"{SITE}/","author":{{"@type":"Person","name":"Đinh Trung Thành","alternateName":"Jason Dinh"}},"inLanguage":"vi"}}</script>
 {extra_head}
 </head>
