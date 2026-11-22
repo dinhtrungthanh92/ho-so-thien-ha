@@ -4,6 +4,10 @@ import json, os, re, html, shutil, datetime
 
 OUT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://hosothienha.com'
+# ── Supabase comment backend (điền sau khi tạo project) ──
+SUPABASE_URL = ''   # vd: https://abcdxyz.supabase.co
+SUPABASE_KEY = ''   # anon public key
+
 arts = json.load(open('/tmp/site_rebuild_src.json'))
 arts.sort(key=lambda r: r['ky'])
 import re as _re, html as _html
@@ -48,10 +52,16 @@ NAV = [
     ('/gioi-thieu/', 'Giới thiệu'),
 ]
 
-def layout(title, desc, body, depth=0, canonical='/', extra_head=''):
+def layout(title, desc, body, depth=0, canonical='/', extra_head='', comments=False):
     desc = desc.replace('80 kỳ', f'{len(arts)} kỳ')
     title = title.replace('80 kỳ', f'{len(arts)} kỳ')
     r = '../' * depth
+    comments_scripts = ''
+    if comments and SUPABASE_URL and SUPABASE_KEY:
+        comments_scripts = (
+            f'<script>window.HSTH_COMMENTS = {{"url": "{SUPABASE_URL}", "key": "{SUPABASE_KEY}"}};</script>\n'
+            f'<script src="{r}assets/comments.js" defer></script>'
+        )
     nav = ''.join(f'<a href="{r}{h.lstrip("/")}">{n}</a>' if h != '/' else f'<a href="{r or "./"}">{n}</a>'
                   for h, n in NAV)
     return f'''<!DOCTYPE html>
@@ -91,6 +101,7 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head=''):
     <p class="fine">9 chuyên đề · {len(arts)} kỳ · nội dung biên soạn và tổng hợp. Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu và mở rộng nhận thức.</p>
   </div>
 </footer>
+{comments_scripts}
 </body>
 </html>'''
 
@@ -241,12 +252,23 @@ for r in arts:
 {body_html}
   </div>
   {pager}
+  <section class="comments" id="comments" data-slug="{r['slug']}">
+    <h2>Bình luận</h2>
+    <p class="cm-hint">Chia sẻ cảm nhận, câu hỏi hoặc tài liệu đối chiếu. Không cần đăng nhập.</p>
+    <div class="cm-list"><p class="cm-empty">Đang tải…</p></div>
+    <form>
+      <input name="name" type="text" placeholder="Tên của bạn" maxlength="60" required>
+      <textarea name="body" rows="4" placeholder="Viết bình luận…" maxlength="3000" required></textarea>
+      <div class="cm-actions"><button type="submit">Gửi bình luận</button><span class="cm-status"></span></div>
+    </form>
+  </section>
   <p class="center"><a class="btn ghost" href="../../muc-luc/">Toàn bộ mục lục</a></p>
 </div>'''
     write(f'ky/{r["slug"]}/index.html', layout(
         f'Kỳ {r["ky"]}: {strip(r["title"])} — {name}', strip(r['lead']), body, depth=2,
         canonical=f'/ky/{r["slug"]}/',
-        extra_head=f'<meta property="og:image" content="{SITE}/{imgs[0] if imgs else "assets/img/series/vol"+str(s)+".jpg"}">'))
+        extra_head=f'<meta property="og:image" content="{SITE}/{imgs[0] if imgs else "assets/img/series/vol"+str(s)+".jpg"}">',
+        comments=True))
 
 # ── table of contents ────────────────────────────────────────
 toc = f'<div class="wrap block"><h1 class="page">Mục lục — {len(arts)} kỳ</h1><p class="sub">Toàn bộ thư viện, xếp theo chuyên đề và thứ tự đọc.</p>'
