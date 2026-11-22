@@ -152,7 +152,7 @@ home = f'''<section class="hero">
   <p class="center"><a class="btn ghost" href="muc-luc/">Toàn bộ {len(arts)} kỳ →</a></p>
 </section>'''
 write('index.html', layout('Hồ Sơ Thiên Hà — Thư viện chuyên đề lịch sử thiên hà & tâm thức vũ trụ',
-    '{len(arts)} kỳ trong 9 chuyên đề: lịch sử thiên hà, dòng máu Anunnaki, văn minh lòng đất, chương trình không gian, hòm không gian cổ đại, hồ sơ chủng tộc, khoa học công nghệ và cẩm nang tâm thức.', home))
+    f'{len(arts)} kỳ trong 9 chuyên đề: lịch sử thiên hà, dòng máu Anunnaki, văn minh lòng đất, chương trình không gian, hòm không gian cổ đại, hồ sơ chủng tộc, khoa học công nghệ và cẩm nang tâm thức.', home))
 
 # ── series index + pages ─────────────────────────────────────
 sbody = '<div class="wrap block"><h1 class="page">Chuyên đề</h1><p class="sub">9 tuyến truyện, ' + str(len(arts)) + ' kỳ. Bấm vào một chuyên đề để xem danh sách kỳ.</p><div class="sgrid">' + sercards_at('../') + '</div></div>'
@@ -254,7 +254,7 @@ for r in arts:
         extra_head=f'<meta property="og:image" content="{SITE}/{imgs[0] if imgs else "assets/img/series/vol"+str(s)+".jpg"}">'))
 
 # ── table of contents ────────────────────────────────────────
-toc = '<div class="wrap block"><h1 class="page">Mục lục — {len(arts)} kỳ</h1><p class="sub">Toàn bộ thư viện, xếp theo chuyên đề và thứ tự đọc.</p>'
+toc = f'<div class="wrap block"><h1 class="page">Mục lục — {len(arts)} kỳ</h1><p class="sub">Toàn bộ thư viện, xếp theo chuyên đề và thứ tự đọc.</p>'
 for s in S_ORDER:
     rows = [r for r in arts if r['series'] == s]
     toc += f'''<section class="toc-sec">
