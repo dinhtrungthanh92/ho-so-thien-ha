@@ -275,7 +275,7 @@ about = f'''<div class="wrap block prose-page">
 <p>Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu, tham khảo và mở rộng nhận thức. Đây là tài liệu tổng hợp từ nhiều nguồn công khai, không phải công bố của một tổ chức khoa học chính thống. Người đọc nên giữ tinh thần phản biện, đối chiếu và tự kiểm chứng — đó cũng chính là tinh thần mà bộ hồ sơ muốn truyền tải.</p>
 <h2>Nội dung</h2>
 <p>9 chuyên đề · {len(arts)} kỳ · hơn {round(sum(r["nwords"] for r in arts), -3):,} từ · {sum(len(r["imgs"]) for r in arts)} sơ đồ và hình minh họa.</p>
-<p class="center"><a class="btn" href="muc-luc/">Vào mục lục</a></p>
+<p class="center"><a class="btn" href="../muc-luc/">Vào mục lục</a></p>
 </div>'''
 write('gioi-thieu/index.html', layout('Giới thiệu — Hồ Sơ Thiên Hà', 'Hồ Sơ Thiên Hà: thư viện chuyên đề miễn phí về lịch sử thiên hà và tâm thức vũ trụ.', about, depth=1, canonical='/gioi-thieu/'))
 
