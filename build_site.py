@@ -2,6 +2,8 @@
 """Build static blog hosothienha.com from /tmp/site_content4.json (80 kỳ, 9 series)."""
 import json, os, re, html, shutil, datetime
 
+TODAY = datetime.date.today().isoformat()
+
 OUT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://hosothienha.com'
 # ── Supabase comment backend (điền sau khi tạo project) ──
@@ -56,6 +58,7 @@ NAV = [
 def layout(title, desc, body, depth=0, canonical='/', extra_head='', comments=False):
     desc = desc.replace('80 kỳ', f'{len(arts)} kỳ')
     title = title.replace('80 kỳ', f'{len(arts)} kỳ')
+    today = TODAY
     r = '../' * depth
     comments_scripts = ''
     if comments and SUPABASE_URL and SUPABASE_KEY:
@@ -83,7 +86,21 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head='', comments=Fa
 <link rel="stylesheet" href="{r}assets/style.css">
 <link rel="icon" href="{r}assets/favicon.svg" type="image/svg+xml">
 <script src="{r}assets/no-copy.js" defer></script>
-<script type="application/ld+json">{{"@context":"https://schema.org","@type":"WebSite","name":"Hồ Sơ Thiên Hà","url":"{SITE}/","author":{{"@type":"Person","name":"Đinh Trung Thành","alternateName":"Jason Dinh"}},"inLanguage":"vi"}}</script>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Đinh Trung Thành">
+<meta name="theme-color" content="#111d33">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:url" content="{SITE}{canonical}">
+<meta property="og:image" content="{SITE}/assets/img/cover-full.jpg">
+<meta property="og:image:width" content="900">
+<meta property="og:image:height" content="1350">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{esc(title)}">
+<meta name="twitter:description" content="{esc(desc)}">
+<meta name="twitter:image" content="{SITE}/assets/img/cover-full.jpg">
+<link rel="alternate" hreflang="vi" href="{SITE}{canonical}">
+<link rel="alternate" hreflang="x-default" href="{SITE}{canonical}">
+<script type="application/ld+json">{{"@context":"https://schema.org","@graph":[{{"@type":"WebSite","@id":"{SITE}/#website","url":"{SITE}/","name":"Hồ Sơ Thiên Hà","description":"Thư viện chuyên đề miễn phí về lịch sử thiên hà, di sản di truyền và tâm thức vũ trụ.","inLanguage":"vi-VN","publisher":{{"@id":"{SITE}/#person"}},"potentialAction":{{"@type":"SearchAction","target":"{SITE}/muc-luc/?q={{search_term_string}}","query-input":"required name=search_term_string"}}}},{{"@type":"Person","@id":"{SITE}/#person","name":"Đinh Trung Thành","alternateName":"Jason Dinh","url":"{SITE}/gioi-thieu/","email":"dinhtrungthanh92@gmail.com"}}]}}</script>
 {extra_head}
 </head>
 <body>
@@ -192,7 +209,13 @@ for s in S_ORDER:
   <ol class="kylist">{kylist}</ol>
   <p class="center pager">{navx}</p>
 </div>'''
-    write(f'series/s{s}/index.html', layout(f'Chuyên đề {s}: {name} — Hồ Sơ Thiên Hà', sub, body, depth=2, canonical=f'/series/s{s}/'))
+    s_schema = (f'<script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage",'
+                f'"@id":"{SITE}/series/s{s}/#series","name":"Chuyên đề {s}: {esc(name)}","description":"{esc(sub)}",'
+                f'"inLanguage":"vi-VN","url":"{SITE}/series/s{s}/","isPartOf":{{"@type":"WebSite","@id":"{SITE}/#website"}},'
+                f'"hasPart":[' + ','.join(
+                    f'{{"@type":"Article","headline":"{esc(strip(rr["title"]))}","url":"{SITE}/{rr["path"]}/"}}'
+                    for rr in rows) + ']}</script>')
+    write(f'series/s{s}/index.html', layout(f'Chuyên đề {s}: {name} — Hồ Sơ Thiên Hà', sub, body, depth=2, canonical=f'/series/s{s}/', extra_head=s_schema))
 
 # ── article pages ────────────────────────────────────────────
 for r in arts:
@@ -259,7 +282,12 @@ for r in arts:
     write(f'{r["path"]}/index.html', layout(
         f'Kỳ {r["ky"]}: {strip(r["title"])} — {name}', strip(r['lead']), body, depth=3,
         canonical=f'/{r["path"]}/',
-        extra_head=f'<meta property="og:image" content="{SITE}/{imgs[0] if imgs else "assets/img/series/vol"+str(s)+".jpg"}">'))
+        extra_head=f'''<meta property="og:type" content="article">
+<meta property="og:image" content="{SITE}/{imgs[0] if imgs else "assets/img/series/vol"+str(s)+".jpg"}">
+<meta property="article:published_time" content="{TODAY}T00:00:00+11:00">
+<meta property="article:author" content="Đinh Trung Thành">
+<meta property="article:section" content="Chuyên đề {s}: {esc(name)}">
+<script type="application/ld+json">{{"@context":"https://schema.org","@graph":[{{"@type":"Article","@id":"{SITE}/{r['path']}/#article","headline":"{esc(strip(r['title']))}","description":"{esc(strip(r['lead']))}","image":"{SITE}/{imgs[0] if imgs else "assets/img/series/vol"+str(s)+".jpg"}","inLanguage":"vi-VN","datePublished":"{TODAY}","dateModified":"{TODAY}","author":{{"@type":"Person","name":"Đinh Trung Thành","url":"{SITE}/gioi-thieu/"}},"publisher":{{"@type":"Person","name":"Đinh Trung Thành"}},"isPartOf":{{"@type":"CollectionPage","@id":"{SITE}/series/s{s}/#series","name":"Chuyên đề {s}: {esc(name)}"}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{SITE}/{r['path']}/"}}}},{{"@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Trang chủ","item":"{SITE}/"}},{{"@type":"ListItem","position":2,"name":"Chuyên đề {s}: {esc(name)}","item":"{SITE}/series/s{s}/"}},{{"@type":"ListItem","position":3,"name":"Kỳ {r['ky']}: {esc(strip(r['title']))}","item":"{SITE}/{r['path']}/"}}]}}]}}</script>'''))
 
 # ── table of contents ────────────────────────────────────────
 toc = f'<div class="wrap block"><h1 class="page">Mục lục — {len(arts)} kỳ</h1><p class="sub">Toàn bộ thư viện, xếp theo chuyên đề và thứ tự đọc.</p>'
