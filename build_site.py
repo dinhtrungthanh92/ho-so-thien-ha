@@ -44,13 +44,15 @@ def rel(root):
 NAV = [
     ('/', 'Trang chủ'),
     ('/series/', 'Chuyên đề'),
-    ('/muc-luc/', 'Mục lục 80 kỳ'),
+    ('/muc-luc/', 'Mục lục'),
     ('/gioi-thieu/', 'Giới thiệu'),
 ]
 
 def layout(title, desc, body, depth=0, canonical='/', extra_head=''):
+    desc = desc.replace('80 kỳ', f'{len(arts)} kỳ')
+    title = title.replace('80 kỳ', f'{len(arts)} kỳ')
     r = '../' * depth
-    nav = ''.join(f'<a href="{r}{h.lstrip("/")}">{n}</a>' if h != '/' else f'<a href="{r}">{n}</a>'
+    nav = ''.join(f'<a href="{r}{h.lstrip("/")}">{n}</a>' if h != '/' else f'<a href="{r or "./"}">{n}</a>'
                   for h, n in NAV)
     return f'''<!DOCTYPE html>
 <html lang="vi">
@@ -81,7 +83,7 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head=''):
 <footer class="site-foot">
   <div class="wrap">
     <p><strong>Hồ Sơ Thiên Hà</strong> — thư viện chuyên đề miễn phí về lịch sử thiên hà, di sản di truyền và tâm thức vũ trụ.</p>
-    <p class="fine">9 chuyên đề · 80 kỳ · nội dung biên soạn và tổng hợp. Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu và mở rộng nhận thức.</p>
+    <p class="fine">9 chuyên đề · {len(arts)} kỳ · nội dung biên soạn và tổng hợp. Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu và mở rộng nhận thức.</p>
   </div>
 </footer>
 </body>
@@ -147,7 +149,7 @@ home = f'''<section class="hero">
   <p class="center"><a class="btn ghost" href="muc-luc/">Toàn bộ {len(arts)} kỳ →</a></p>
 </section>'''
 write('index.html', layout('Hồ Sơ Thiên Hà — Thư viện chuyên đề lịch sử thiên hà & tâm thức vũ trụ',
-    '80 kỳ trong 9 chuyên đề: lịch sử thiên hà, dòng máu Anunnaki, văn minh lòng đất, chương trình không gian, hòm không gian cổ đại, hồ sơ chủng tộc, khoa học công nghệ và cẩm nang tâm thức.', home))
+    '{len(arts)} kỳ trong 9 chuyên đề: lịch sử thiên hà, dòng máu Anunnaki, văn minh lòng đất, chương trình không gian, hòm không gian cổ đại, hồ sơ chủng tộc, khoa học công nghệ và cẩm nang tâm thức.', home))
 
 # ── series index + pages ─────────────────────────────────────
 sbody = '<div class="wrap block"><h1 class="page">Chuyên đề</h1><p class="sub">9 tuyến truyện, ' + str(len(arts)) + ' kỳ. Bấm vào một chuyên đề để xem danh sách kỳ.</p><div class="sgrid">' + sercards_at('../') + '</div></div>'
@@ -249,7 +251,7 @@ for r in arts:
         extra_head=f'<meta property="og:image" content="{SITE}/{imgs[0] if imgs else "assets/img/series/vol"+str(s)+".jpg"}">'))
 
 # ── table of contents ────────────────────────────────────────
-toc = '<div class="wrap block"><h1 class="page">Mục lục — 80 kỳ</h1><p class="sub">Toàn bộ thư viện, xếp theo chuyên đề và thứ tự đọc.</p>'
+toc = '<div class="wrap block"><h1 class="page">Mục lục — {len(arts)} kỳ</h1><p class="sub">Toàn bộ thư viện, xếp theo chuyên đề và thứ tự đọc.</p>'
 for s in S_ORDER:
     rows = [r for r in arts if r['series'] == s]
     toc += f'''<section class="toc-sec">
@@ -257,18 +259,18 @@ for s in S_ORDER:
   <ol>{''.join(f'<li><a href="ky/{r["slug"]}/"><span class="toc-num">{r["ky"]}</span> {esc(r["title"])}</a></li>' for r in rows)}</ol>
 </section>'''
 toc += '</div>'
-write('muc-luc/index.html', layout('Mục lục 80 kỳ — Hồ Sơ Thiên Hà', 'Danh sách đầy đủ 80 kỳ thuộc 9 chuyên đề.', toc, depth=1, canonical='/muc-luc/'))
+write('muc-luc/index.html', layout(f'Mục lục {len(arts)} kỳ — Hồ Sơ Thiên Hà', f'Danh sách đầy đủ {len(arts)} kỳ thuộc 9 chuyên đề.', toc, depth=1, canonical='/muc-luc/'))
 
 # ── about ────────────────────────────────────────────────────
-about = '''<div class="wrap block prose-page">
+about = f'''<div class="wrap block prose-page">
 <h1 class="page">Giới thiệu</h1>
-<p><strong>Hồ Sơ Thiên Hà</strong> là một thư viện chuyên đề trực tuyến, chia sẻ miễn phí các nội dung về lịch sử thiên hà, di sản di truyền của loài người, các nền văn minh cổ đại và những phương pháp mở rộng nhận thức — được biên soạn thành 9 chuyên đề với 80 kỳ, sắp xếp theo một dòng thời gian liền mạch.</p>
+<p><strong>Hồ Sơ Thiên Hà</strong> là một thư viện chuyên đề trực tuyến, chia sẻ miễn phí các nội dung về lịch sử thiên hà, di sản di truyền của loài người, các nền văn minh cổ đại và những phương pháp mở rộng nhận thức — được biên soạn thành 9 chuyên đề với {len(arts)} kỳ, sắp xếp theo một dòng thời gian liền mạch.</p>
 <h2>Cách đọc</h2>
 <p>Nếu là lần đầu, hãy bắt đầu từ <a href="series/s1/">Chuyên đề 1 — Tiền Sử Thiên Hà</a> và đọc tuần tự tới <a href="series/s9/">Chuyên đề 9 — Cẩm Nang Tâm Thức Vũ Trụ</a>. Mỗi kỳ chỉ 2.000 – 3.000 từ, đọc khoảng 10 phút, được thiết kế để đọc độc lập nhưng ăn khớp với mạch chung.</p>
 <h2>Chính sách nội dung</h2>
 <p>Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu, tham khảo và mở rộng nhận thức. Đây là tài liệu tổng hợp từ nhiều nguồn công khai, không phải công bố của một tổ chức khoa học chính thống. Người đọc nên giữ tinh thần phản biện, đối chiếu và tự kiểm chứng — đó cũng chính là tinh thần mà bộ hồ sơ muốn truyền tải.</p>
 <h2>Nội dung</h2>
-<p>9 chuyên đề · 80 kỳ · hơn 200.000 từ · hơn 500 sơ đồ và hình minh họa.</p>
+<p>9 chuyên đề · {len(arts)} kỳ · {sum(r["nwords"] for r in arts):,} từ · {sum(len(r["imgs"]) for r in arts)} sơ đồ và hình minh họa.</p>
 <p class="center"><a class="btn" href="muc-luc/">Vào mục lục</a></p>
 </div>'''
 write('gioi-thieu/index.html', layout('Giới thiệu — Hồ Sơ Thiên Hà', 'Hồ Sơ Thiên Hà: thư viện chuyên đề miễn phí về lịch sử thiên hà và tâm thức vũ trụ.', about, depth=1, canonical='/gioi-thieu/'))
