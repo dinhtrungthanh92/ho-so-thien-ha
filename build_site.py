@@ -175,10 +175,10 @@ for s in S_ORDER:
       <p>{esc(r['lead'])}</p>
       <span class="more">Đọc kỳ này →</span></a></li>''' for r in rows)
     navx = ''
-    if prev_s: navx += f'<a class="btn ghost" href="../series/s{prev_s}/">← Chuyên đề {prev_s}: {esc(SERIES[prev_s][0])}</a> '
-    if next_s: navx += f'<a class="btn ghost" href="../series/s{next_s}/">Chuyên đề {next_s}: {esc(SERIES[next_s][0])} →</a>'
+    if prev_s: navx += f'<a class="btn ghost" href="../../series/s{prev_s}/">← Chuyên đề {prev_s}: {esc(SERIES[prev_s][0])}</a> '
+    if next_s: navx += f'<a class="btn ghost" href="../../series/s{next_s}/">Chuyên đề {next_s}: {esc(SERIES[next_s][0])} →</a>'
     body = f'''<div class="wrap block">
-  <p class="crumb"><a href="../">Trang chủ</a> / <a href="../series/">Chuyên đề</a> / Chuyên đề {s}</p>
+  <p class="crumb"><a href="../../">Trang chủ</a> / <a href="../../series/">Chuyên đề</a> / Chuyên đề {s}</p>
   <header class="series-hero">
     <img src="../../assets/img/series/vol{s}.jpg" alt="Chuyên đề {s}">
     <div>
