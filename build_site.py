@@ -111,8 +111,9 @@ stats = f'''<div class="stats">
   <li><b>{sum(len(r['imgs']) for r in arts)}</b><span>Ảnh minh họa</span></li>
 </div>'''
 
-sercards = ''.join(f'''<a class="scard" href="series/s{s}/">
-  <img src="assets/img/series/vol{s}.jpg" alt="Chuyên đề {s}: {esc(SERIES[s][0])}" loading="lazy">
+def sercards_at(prefix=''):
+    return ''.join(f'''<a class="scard" href="{prefix}series/s{s}/">
+  <img src="{prefix}assets/img/series/vol{s}.jpg" alt="Chuyên đề {s}: {esc(SERIES[s][0])}" loading="lazy">
   <div><span class="chip">Chuyên đề {s}</span>
   <h3>{esc(SERIES[s][0])}</h3>
   <p>{esc(SERIES[s][1])}</p>
@@ -122,29 +123,34 @@ sercards = ''.join(f'''<a class="scard" href="series/s{s}/">
 latest = sorted(arts, key=lambda r: -r['ky'])[:9]
 home = f'''<section class="hero">
   <div class="wrap">
-    <p class="eyebrow">Thư viện chuyên đề miễn phí</p>
-    <h1>Hồ Sơ Thiên Hà</h1>
-    <p class="lede">Từ Lăng Kính Lyra và các Đấng Sáng Lập, tới dòng máu Anunnaki, những nền văn minh lòng đất, chương trình không gian bí mật, hòm không gian cổ đại, hồ sơ các chủng tộc — và cuối cùng là cẩm nang tâm thức vũ trụ. 9 chuyên đề, 80 kỳ, đọc theo đúng mạch.</p>
-    <p class="actions"><a class="btn" href="muc-luc/">Xem mục lục 80 kỳ</a><a class="btn ghost" href="series/">Khám phá chuyên đề</a></p>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Thư viện chuyên đề miễn phí</p>
+        <h1>Hồ Sơ Thiên Hà</h1>
+        <p class="lede">Từ Lăng Kính Lyra và các Đấng Sáng Lập, tới dòng máu Anunnaki, những nền văn minh lòng đất, chương trình không gian bí mật, hòm không gian cổ đại, hồ sơ các chủng tộc — và cuối cùng là cẩm nang tâm thức vũ trụ. 9 chuyên đề, {len(arts)} kỳ, đọc theo đúng mạch.</p>
+        <p class="actions"><a class="btn" href="muc-luc/">Xem mục lục {len(arts)} kỳ</a><a class="btn ghost" href="series/">Khám phá chuyên đề</a></p>
+      </div>
+      <figure class="hero-cover"><img src="assets/img/cover-full.jpg" alt="Bìa Hồ Sơ Thiên Hà — toàn tập 9 chuyên đề" fetchpriority="high"></figure>
+    </div>
     <ul class="stats-wrap">{stats}</ul>
   </div>
 </section>
 <section class="block wrap">
   <h2 class="sec">9 chuyên đề</h2>
   <p class="sub">Mỗi chuyên đề là một tuyến truyện liền mạch. Đọc từ kỳ đầu tới kỳ cuối, hoặc nhảy vào bất kỳ chủ đề nào bạn quan tâm.</p>
-  <div class="sgrid">{sercards}</div>
+  <div class="sgrid">{sercards_at()}</div>
 </section>
 <section class="block wrap">
   <h2 class="sec">Kỳ mới cập nhật</h2>
   <p class="sub">Ấn phẩm mới nhất trong thư viện — kéo xuống để đọc, không cần đăng ký.</p>
   <div class="grid">{''.join(card(r) for r in latest)}</div>
-  <p class="center"><a class="btn ghost" href="muc-luc/">Toàn bộ 80 kỳ →</a></p>
+  <p class="center"><a class="btn ghost" href="muc-luc/">Toàn bộ {len(arts)} kỳ →</a></p>
 </section>'''
 write('index.html', layout('Hồ Sơ Thiên Hà — Thư viện chuyên đề lịch sử thiên hà & tâm thức vũ trụ',
     '80 kỳ trong 9 chuyên đề: lịch sử thiên hà, dòng máu Anunnaki, văn minh lòng đất, chương trình không gian, hòm không gian cổ đại, hồ sơ chủng tộc, khoa học công nghệ và cẩm nang tâm thức.', home))
 
 # ── series index + pages ─────────────────────────────────────
-sbody = '<div class="wrap block"><h1 class="page">Chuyên đề</h1><p class="sub">9 tuyến truyện, 80 kỳ. Bấm vào một chuyên đề để xem danh sách kỳ.</p><div class="sgrid">' + sercards + '</div></div>'
+sbody = '<div class="wrap block"><h1 class="page">Chuyên đề</h1><p class="sub">9 tuyến truyện, ' + str(len(arts)) + ' kỳ. Bấm vào một chuyên đề để xem danh sách kỳ.</p><div class="sgrid">' + sercards_at('../') + '</div></div>'
 write('series/index.html', layout('Chuyên đề — Hồ Sơ Thiên Hà', '9 chuyên đề về lịch sử thiên hà, di sản di truyền và tâm thức vũ trụ.', sbody, depth=1, canonical='/series/'))
 
 for s in S_ORDER:

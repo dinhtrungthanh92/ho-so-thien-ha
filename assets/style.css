@@ -28,7 +28,11 @@ a:hover{text-decoration:underline}
 .hero{background:radial-gradient(circle at 50% -10%,#24406f 0%,#101c33 45%,#060a13 100%);color:#fff;padding:84px 0 88px;position:relative;overflow:hidden}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.85;
  background-image:radial-gradient(1.3px 1.3px at 12% 22%,#fff8,transparent),radial-gradient(1.1px 1.1px at 34% 12%,#cfe4ffaa,transparent),radial-gradient(1.5px 1.5px at 68% 18%,#fff9,transparent),radial-gradient(1px 1px at 84% 30%,#ffe9c4aa,transparent),radial-gradient(1.2px 1.2px at 24% 68%,#fff8,transparent),radial-gradient(1.4px 1.4px at 76% 74%,#dfe9ffaa,transparent),radial-gradient(1.1px 1.1px at 48% 84%,#fff7,transparent)}
-.hero .wrap{position:relative;z-index:2;max-width:820px}
+.hero .wrap{position:relative;z-index:2;max-width:1120px}
+.hero-grid{display:grid;grid-template-columns:1fr 320px;gap:52px;align-items:center;margin-bottom:44px}
+.hero-cover{margin:0}
+.hero-cover img{width:100%;border-radius:12px;box-shadow:0 32px 64px -28px #000000b3,0 0 0 1px #ffffff1f}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:32px}.hero-cover{max-width:280px}}
 .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#9dc0f0;margin-bottom:20px;font-weight:500}
 .hero h1{font-size:clamp(38px,6vw,58px);line-height:1.08;letter-spacing:-1px;font-weight:600;margin-bottom:20px}
 .hero .lede{font-size:17px;color:#c6d5e9;max-width:60ch;margin-bottom:30px}
