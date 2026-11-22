@@ -171,7 +171,7 @@ for s in S_ORDER:
     body = f'''<div class="wrap block">
   <p class="crumb"><a href="../">Trang chủ</a> / <a href="../series/">Chuyên đề</a> / Chuyên đề {s}</p>
   <header class="series-hero">
-    <img src="../assets/img/series/vol{s}.jpg" alt="Chuyên đề {s}">
+    <img src="../../assets/img/series/vol{s}.jpg" alt="Chuyên đề {s}">
     <div>
       <p class="eyebrow">Chuyên đề {s} · {len(rows)} kỳ</p>
       <h1 class="page">{esc(name)}</h1>
