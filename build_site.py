@@ -4,7 +4,7 @@ import json, os, re, html, shutil, datetime
 
 OUT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://hosothienha.com'
-arts = json.load(open('/tmp/site_content4.json'))
+arts = json.load(open('/tmp/site_content5.json'))
 arts.sort(key=lambda r: r['ky'])
 by_ky = {r['ky']: r for r in arts}
 
