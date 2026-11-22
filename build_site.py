@@ -66,6 +66,9 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head=''):
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:site_name" content="Hồ Sơ Thiên Hà">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <link rel="stylesheet" href="{r}assets/style.css">
 <link rel="icon" href="{r}assets/favicon.svg" type="image/svg+xml">
 {extra_head}
