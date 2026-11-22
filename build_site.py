@@ -85,7 +85,6 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head='', comments=Fa
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <link rel="stylesheet" href="{r}assets/style.css">
 <link rel="icon" href="{r}assets/favicon.svg" type="image/svg+xml">
-<script src="{r}assets/no-copy.js" defer></script>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Đinh Trung Thành">
 <meta name="theme-color" content="#111d33">

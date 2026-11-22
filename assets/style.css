@@ -169,7 +169,3 @@ h1.page{font-size:clamp(30px,4.4vw,44px);letter-spacing:-.8px;font-weight:600;li
 .comments button:disabled{opacity:.55;cursor:not-allowed}
 .cm-status{font-size:13px;color:var(--muted)}
 
-/* ── chống copy: không cho chọn text nội dung bài ── */
-.prose,.art-head h1,.danger-note{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
-.prose img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
-@media print{.prose{display:none}}
