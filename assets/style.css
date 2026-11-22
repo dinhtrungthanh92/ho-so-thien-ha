@@ -186,3 +186,18 @@ h1.page{font-size:clamp(30px,4.4vw,44px);letter-spacing:-.8px;font-weight:600;li
 .s-item h3{font-size:16.5px;font-weight:600;line-height:1.35;margin:7px 0 6px;color:var(--ink);transition:color .15s}
 .s-item p{font-size:13.5px;color:var(--muted);line-height:1.6}
 .s-item mark{background:#fff3bf;color:inherit;padding:0 1px;border-radius:2px}
+
+/* ── hero search ── */
+.hero-search{display:flex;gap:0;max-width:520px;margin-bottom:30px;background:#ffffff14;border:1px solid #ffffff2e;border-radius:10px;overflow:hidden;backdrop-filter:blur(4px)}
+.hero-search input{
+  flex:1;font-family:"Inter",sans-serif;font-size:15px;color:#fff;background:transparent;border:0;
+  padding:14px 18px;min-width:0}
+.hero-search input::placeholder{color:#9fb4d0}
+.hero-search input:focus{outline:none}
+.hero-search button{
+  font-family:"Inter",sans-serif;font-size:14px;font-weight:600;color:#fff;cursor:pointer;
+  background:linear-gradient(180deg,#4272c6,#2a519c);border:0;padding:0 24px;white-space:nowrap}
+.hero-search button:hover{filter:brightness(1.1)}
+.nav-search{font-size:17px;line-height:1;color:var(--ink2) !important;padding:0 2px}
+.nav-search:hover{color:var(--blue) !important}
+@media(max-width:600px){.hero-search{flex-direction:column}.hero-search input{padding:13px 16px}.hero-search button{padding:12px}}

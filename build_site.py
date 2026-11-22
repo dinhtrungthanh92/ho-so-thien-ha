@@ -107,7 +107,7 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head='', comments=Fa
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="{r}"><span class="mark">✦</span> Hồ Sơ Thiên Hà</a>
-    <nav class="nav">{nav}</nav>
+    <nav class="nav">{nav}<a class="nav-search" href="{r}tim-kiem/" aria-label="Tìm kiếm">⌕</a></nav>
   </div>
 </header>
 <main>
@@ -159,6 +159,10 @@ home = f'''<section class="hero">
         <p class="eyebrow">Thư viện chuyên đề miễn phí</p>
         <h1>Hồ Sơ Thiên Hà</h1>
         <p class="lede">Từ Lăng Kính Lyra và các Đấng Sáng Lập, tới dòng máu Anunnaki, những nền văn minh lòng đất, chương trình không gian bí mật, hòm không gian cổ đại, hồ sơ các chủng tộc — và cuối cùng là cẩm nang tâm thức vũ trụ. 9 chuyên đề, {len(arts)} kỳ, đọc theo đúng mạch.</p>
+        <form class="hero-search" action="tim-kiem/" method="get" role="search">
+          <input type="search" name="q" placeholder="Tìm trong {len(arts)} kỳ — ví dụ: anunnaki, luân xa, agartha…" aria-label="Tìm kiếm">
+          <button type="submit" aria-label="Tìm">Tìm</button>
+        </form>
         <p class="actions"><a class="btn" href="muc-luc/">Xem mục lục {len(arts)} kỳ</a><a class="btn ghost" href="series/">Khám phá chuyên đề</a></p>
       </div>
       <figure class="hero-cover"><img src="assets/img/cover-full.jpg" alt="Bìa Hồ Sơ Thiên Hà — toàn tập 9 chuyên đề" fetchpriority="high"></figure>
