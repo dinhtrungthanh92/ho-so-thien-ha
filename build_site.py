@@ -109,12 +109,6 @@ shutil.rmtree(os.path.join(OUT, 'ky'), ignore_errors=True)
 shutil.rmtree(os.path.join(OUT, 'series'), ignore_errors=True)
 
 # ── home ──────────────────────────────────────────────────────
-stats = f'''<div class="stats">
-  <li><b>{len(arts)}</b><span>Kỳ</span></li>
-  <li><b>9</b><span>Chuyên đề</span></li>
-  <li><b>{sum(r['nwords'] for r in arts)//1000}k</b><span>Từ</span></li>
-  <li><b>{sum(len(r['imgs']) for r in arts)}</b><span>Ảnh minh họa</span></li>
-</div>'''
 
 def sercards_at(prefix=''):
     return ''.join(f'''<a class="scard" href="{prefix}series/s{s}/">
@@ -137,7 +131,6 @@ home = f'''<section class="hero">
       </div>
       <figure class="hero-cover"><img src="assets/img/cover-full.jpg" alt="Bìa Hồ Sơ Thiên Hà — toàn tập 9 chuyên đề" fetchpriority="high"></figure>
     </div>
-    <ul class="stats-wrap">{stats}</ul>
   </div>
 </section>
 <section class="block wrap">
