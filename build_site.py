@@ -4,8 +4,17 @@ import json, os, re, html, shutil, datetime
 
 OUT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://hosothienha.com'
-arts = json.load(open('/tmp/site_content5.json'))
+arts = json.load(open('/tmp/site_rebuild_src.json'))
 arts.sort(key=lambda r: r['ky'])
+import re as _re, html as _html
+for _r in arts:
+    _t = _html.unescape(_re.sub(r'<[^>]+>', ' ', _r['body']))
+    _t = _re.sub(r'\s+', ' ', _t).strip()
+    _r['nwords'] = len(_t.split())
+    _r['lead'] = _r.get('lead') or (_t[:260].rsplit(' ', 1)[0] + '…')
+    _r.setdefault('cover', _r['imgs'][0] if _r['imgs'] else 'assets/img/series/vol%d.jpg' % _r['series'])
+    _r.setdefault('nfig', max(0, len(_r['imgs']) - 1))
+
 by_ky = {r['ky']: r for r in arts}
 
 SERIES = {
