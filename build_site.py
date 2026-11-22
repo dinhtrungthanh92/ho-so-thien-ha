@@ -71,6 +71,7 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head=''):
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <link rel="stylesheet" href="{r}assets/style.css">
 <link rel="icon" href="{r}assets/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"WebSite","name":"Hồ Sơ Thiên Hà","url":"{SITE}/","author":{{"@type":"Person","name":"Đinh Trung Thành","alternateName":"Jason Dinh"}},"inLanguage":"vi"}}</script>
 {extra_head}
 </head>
 <body>
@@ -86,6 +87,7 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head=''):
 <footer class="site-foot">
   <div class="wrap">
     <p><strong>Hồ Sơ Thiên Hà</strong> — thư viện chuyên đề miễn phí về lịch sử thiên hà, di sản di truyền và tâm thức vũ trụ.</p>
+    <p>Tổng hợp &amp; biên soạn: <strong>Đinh Trung Thành</strong> (Jason Dinh).</p>
     <p class="fine">9 chuyên đề · {len(arts)} kỳ · nội dung biên soạn và tổng hợp. Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu và mở rộng nhận thức.</p>
   </div>
 </footer>
@@ -260,13 +262,18 @@ write('muc-luc/index.html', layout(f'Mục lục {len(arts)} kỳ — Hồ Sơ T
 # ── about ────────────────────────────────────────────────────
 about = f'''<div class="wrap block prose-page">
 <h1 class="page">Giới thiệu</h1>
+<h2>Người tổng hợp &amp; biên soạn</h2>
+<p><strong>Đinh Trung Thành</strong> (Jason Dinh) — người sáng lập và biên soạn toàn bộ thư viện này.</p>
+<p>Hơn ba năm đọc, đối chiếu và hệ thống hóa hàng trăm nguồn tài liệu rời rạc — hồ sơ giải mật, văn bản cổ, truyền tin thiên hà, tài liệu nghiên cứu tâm thức — anh ghép chúng thành một dòng thời gian có đầu có cuối, viết lại bằng tiếng Việt mạch lạc, bổ sung sơ đồ minh họa cho từng kỳ, rồi đưa lên web để bất kỳ ai cũng đọc được miễn phí.</p>
+<p>Mục tiêu không phải thuyết phục người đọc tin vào một quan điểm, mà là trao cho họ một bản đồ đầy đủ để tự đối chiếu, tự kiểm chứng và tự đặt câu hỏi.</p>
+<h2>Về thư viện</h2>
 <p><strong>Hồ Sơ Thiên Hà</strong> là một thư viện chuyên đề trực tuyến, chia sẻ miễn phí các nội dung về lịch sử thiên hà, di sản di truyền của loài người, các nền văn minh cổ đại và những phương pháp mở rộng nhận thức — được biên soạn thành 9 chuyên đề với {len(arts)} kỳ, sắp xếp theo một dòng thời gian liền mạch.</p>
 <h2>Cách đọc</h2>
 <p>Nếu là lần đầu, hãy bắt đầu từ <a href="series/s1/">Chuyên đề 1 — Tiền Sử Thiên Hà</a> và đọc tuần tự tới <a href="series/s9/">Chuyên đề 9 — Cẩm Nang Tâm Thức Vũ Trụ</a>. Mỗi kỳ chỉ 2.000 – 3.000 từ, đọc khoảng 10 phút, được thiết kế để đọc độc lập nhưng ăn khớp với mạch chung.</p>
 <h2>Chính sách nội dung</h2>
 <p>Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu, tham khảo và mở rộng nhận thức. Đây là tài liệu tổng hợp từ nhiều nguồn công khai, không phải công bố của một tổ chức khoa học chính thống. Người đọc nên giữ tinh thần phản biện, đối chiếu và tự kiểm chứng — đó cũng chính là tinh thần mà bộ hồ sơ muốn truyền tải.</p>
 <h2>Nội dung</h2>
-<p>9 chuyên đề · {len(arts)} kỳ · {sum(r["nwords"] for r in arts):,} từ · {sum(len(r["imgs"]) for r in arts)} sơ đồ và hình minh họa.</p>
+<p>9 chuyên đề · {len(arts)} kỳ · hơn {round(sum(r["nwords"] for r in arts), -3):,} từ · {sum(len(r["imgs"]) for r in arts)} sơ đồ và hình minh họa.</p>
 <p class="center"><a class="btn" href="muc-luc/">Vào mục lục</a></p>
 </div>'''
 write('gioi-thieu/index.html', layout('Giới thiệu — Hồ Sơ Thiên Hà', 'Hồ Sơ Thiên Hà: thư viện chuyên đề miễn phí về lịch sử thiên hà và tâm thức vũ trụ.', about, depth=1, canonical='/gioi-thieu/'))
