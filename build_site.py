@@ -175,10 +175,10 @@ for s in S_ORDER:
       <p>{esc(r['lead'])}</p>
       <span class="more">Đọc kỳ này →</span></a></li>''' for r in rows)
     navx = ''
-    if prev_s: navx += f'<a class="btn ghost" href="../../series/s{prev_s}/">← Chuyên đề {prev_s}: {esc(SERIES[prev_s][0])}</a> '
-    if next_s: navx += f'<a class="btn ghost" href="../../series/s{next_s}/">Chuyên đề {next_s}: {esc(SERIES[next_s][0])} →</a>'
+    if prev_s: navx += f'<a class="btn ghost" href="../s{prev_s}/">← Chuyên đề {prev_s}: {esc(SERIES[prev_s][0])}</a> '
+    if next_s: navx += f'<a class="btn ghost" href="../s{next_s}/">Chuyên đề {next_s}: {esc(SERIES[next_s][0])} →</a>'
     body = f'''<div class="wrap block">
-  <p class="crumb"><a href="../../">Trang chủ</a> / <a href="../../series/">Chuyên đề</a> / Chuyên đề {s}</p>
+  <p class="crumb"><a href="../../">Trang chủ</a> / <a href="../">Chuyên đề</a> / Chuyên đề {s}</p>
   <header class="series-hero">
     <img src="../../assets/img/series/vol{s}.jpg" alt="Chuyên đề {s}">
     <div>
@@ -190,7 +190,7 @@ for s in S_ORDER:
   <ol class="kylist">{kylist}</ol>
   <p class="center pager">{navx}</p>
 </div>'''
-    write(f'series/s{s}/index.html', layout(f'Chuyên đề {s}: {name} — Hồ Sơ Thiên Hà', sub, body, depth=1, canonical=f'/series/s{s}/'))
+    write(f'series/s{s}/index.html', layout(f'Chuyên đề {s}: {name} — Hồ Sơ Thiên Hà', sub, body, depth=2, canonical=f'/series/s{s}/'))
 
 # ── article pages ────────────────────────────────────────────
 for r in arts:
@@ -275,8 +275,8 @@ toc = f'<div class="wrap block"><h1 class="page">Mục lục — {len(arts)} k�
 for s in S_ORDER:
     rows = [r for r in arts if r['series'] == s]
     toc += f'''<section class="toc-sec">
-  <h2><a href="series/s{s}/">Chuyên đề {s} — {esc(SERIES[s][0])}</a> <small>{len(rows)} kỳ</small></h2>
-  <ol>{''.join(f'<li><a href="ky/{r["slug"]}/"><span class="toc-num">{r["ky"]}</span> {esc(r["title"])}</a></li>' for r in rows)}</ol>
+  <h2><a href="../series/s{s}/">Chuyên đề {s} — {esc(SERIES[s][0])}</a> <small>{len(rows)} kỳ</small></h2>
+  <ol>{''.join(f'<li><a href="../ky/{r["slug"]}/"><span class="toc-num">{r["ky"]}</span> {esc(r["title"])}</a></li>' for r in rows)}</ol>
 </section>'''
 toc += '</div>'
 write('muc-luc/index.html', layout(f'Mục lục {len(arts)} kỳ — Hồ Sơ Thiên Hà', f'Danh sách đầy đủ {len(arts)} kỳ thuộc 9 chuyên đề.', toc, depth=1, canonical='/muc-luc/'))
@@ -292,7 +292,7 @@ about = f'''<div class="wrap block prose-page">
 <h2>Về thư viện</h2>
 <p><strong>Hồ Sơ Thiên Hà</strong> là một thư viện chuyên đề trực tuyến, chia sẻ miễn phí các nội dung về lịch sử thiên hà, di sản di truyền của loài người, các nền văn minh cổ đại và những phương pháp mở rộng nhận thức — được biên soạn thành 9 chuyên đề với {len(arts)} kỳ, sắp xếp theo một dòng thời gian liền mạch.</p>
 <h2>Cách đọc</h2>
-<p>Nếu là lần đầu, hãy bắt đầu từ <a href="series/s1/">Chuyên đề 1 — Tiền Sử Thiên Hà</a> và đọc tuần tự tới <a href="series/s9/">Chuyên đề 9 — Cẩm Nang Tâm Thức Vũ Trụ</a>. Mỗi kỳ chỉ 2.000 – 3.000 từ, đọc khoảng 10 phút, được thiết kế để đọc độc lập nhưng ăn khớp với mạch chung.</p>
+<p>Nếu là lần đầu, hãy bắt đầu từ <a href="../series/s1/">Chuyên đề 1 — Tiền Sử Thiên Hà</a> và đọc tuần tự tới <a href="../series/s9/">Chuyên đề 9 — Cẩm Nang Tâm Thức Vũ Trụ</a>. Mỗi kỳ chỉ 2.000 – 3.000 từ, đọc khoảng 10 phút, được thiết kế để đọc độc lập nhưng ăn khớp với mạch chung.</p>
 <h2>Chính sách nội dung</h2>
 <p>Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu, tham khảo và mở rộng nhận thức. Đây là tài liệu tổng hợp từ nhiều nguồn công khai, không phải công bố của một tổ chức khoa học chính thống. Người đọc nên giữ tinh thần phản biện, đối chiếu và tự kiểm chứng — đó cũng chính là tinh thần mà bộ hồ sơ muốn truyền tải.</p>
 <h2>Nội dung</h2>
