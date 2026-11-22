@@ -53,6 +53,7 @@ NAV = [
     ('/series/', 'Chuyên đề'),
     ('/muc-luc/', 'Mục lục'),
     ('/gioi-thieu/', 'Giới thiệu'),
+    ('/tim-kiem/', 'Tìm kiếm'),
 ]
 
 def layout(title, desc, body, depth=0, canonical='/', extra_head='', comments=False):
@@ -102,7 +103,7 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head='', comments=Fa
 <script type="application/ld+json">{{"@context":"https://schema.org","@graph":[{{"@type":"WebSite","@id":"{SITE}/#website","url":"{SITE}/","name":"Hồ Sơ Thiên Hà","description":"Thư viện chuyên đề miễn phí về lịch sử thiên hà, di sản di truyền và tâm thức vũ trụ.","inLanguage":"vi-VN","publisher":{{"@id":"{SITE}/#person"}},"potentialAction":{{"@type":"SearchAction","target":"{SITE}/muc-luc/?q={{search_term_string}}","query-input":"required name=search_term_string"}}}},{{"@type":"Person","@id":"{SITE}/#person","name":"Đinh Trung Thành","alternateName":"Jason Dinh","url":"{SITE}/gioi-thieu/","email":"dinhtrungthanh92@gmail.com"}}]}}</script>
 {extra_head}
 </head>
-<body>
+<body data-root="{r}">
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="{r}"><span class="mark">✦</span> Hồ Sơ Thiên Hà</a>
@@ -319,10 +320,40 @@ about = f'''<div class="wrap block prose-page">
 </div>'''
 write('gioi-thieu/index.html', layout('Giới thiệu — Hồ Sơ Thiên Hà', 'Hồ Sơ Thiên Hà: thư viện chuyên đề miễn phí về lịch sử thiên hà và tâm thức vũ trụ.', about, depth=1, canonical='/gioi-thieu/'))
 
+# ── search index ─────────────────────────────────────────────
+def _plain(html_body):
+    t = re.sub(r'<[^>]+>', ' ', html_body)
+    t = html.unescape(t)
+    return re.sub(r'\s+', ' ', t).strip()
+
+search_docs = []
+for _r in arts:
+    txt = _plain(_r['body'])
+    search_docs.append({
+        'u': '/' + _r['path'] + '/',
+        't': strip(_r['title']),
+        's': _r['series'],
+        'k': _r['ky'],
+        'd': strip(_r['lead']),
+    })
+write('assets/search-index.json', json.dumps(search_docs, ensure_ascii=False, separators=(',', ':')))
+
+# ── search page ──────────────────────────────────────────────
+search_body = f'''<div class="wrap block search-page">
+  <h1 class="page">Tìm kiếm</h1>
+  <p class="sub">Tìm theo tiêu đề hoặc nội dung — không cần gõ dấu tiếng Việt.</p>
+  <div class="search-box">
+    <input id="q" type="search" placeholder="Ví dụ: anunnaki, luân xa, solar warden…" autocomplete="off" autofocus>
+  </div>
+  <div id="results"></div>
+</div>'''
+write('tim-kiem/index.html', layout(f'Tìm kiếm — Hồ Sơ Thiên Hà', f'Tìm trong {len(arts)} kỳ của Hồ Sơ Thiên Hà.', search_body, depth=1, canonical='/tim-kiem/',
+      extra_head='<script src="../assets/search.js" defer></script>'))
+
 # ── 404, sitemap, robots ─────────────────────────────────────
 write('404.html', layout('Không tìm thấy trang — Hồ Sơ Thiên Hà', 'Trang không tồn tại.',
       '<div class="wrap block center"><h1 class="page">404</h1><p>Trang này không tồn tại. <a href="/">Về trang chủ</a> hoặc <a href="/muc-luc/">xem mục lục</a>.</p></div>', depth=0))
-urls = ['/', '/series/', '/muc-luc/', '/gioi-thieu/'] + [f'/series/s{s}/' for s in S_ORDER] + [f'/{r["path"]}/' for r in arts]
+urls = ['/', '/series/', '/muc-luc/', '/gioi-thieu/', '/tim-kiem/'] + [f'/series/s{s}/' for s in S_ORDER] + [f'/{r["path"]}/' for r in arts]
 today = datetime.date.today().isoformat()
 sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 for u in urls:
