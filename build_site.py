@@ -234,12 +234,18 @@ for r in arts:
     if next_a is None and r['ky'] < len(arts): next_a = by_ky[r['ky'] + 1]
 
     imgs = r['imgs']
-    # opener cover image (first) + distribute the rest evenly between <h2> sections
-    cover = f'<figure class="art-fig"><img src="../../../{imgs[0]}" alt="{esc(r["title"])}" loading="lazy"></figure>' if imgs else ''
-    figs_head = cover
-    rest = imgs[1:]
     body_html = r['body']
-    gallery = ''
+    # Nếu body đã chèn ảnh inline (chuyên đề 10) thì không thêm cover/gallery tự động.
+    if '<img' in body_html:
+        cover = f'<figure class="art-fig"><img src="../../../{imgs[0]}" alt="{esc(r["title"])}" loading="lazy"></figure>' if imgs else ''
+        figs_head = cover
+        rest = []
+    else:
+     # opener cover image (first) + distribute the rest evenly between <h2> sections
+     cover = f'<figure class="art-fig"><img src="../../../{imgs[0]}" alt="{esc(r["title"])}" loading="lazy"></figure>' if imgs else ''
+     figs_head = cover
+     rest = imgs[1:]
+     gallery = ''
     if rest:
         parts = re.split(r'(<h2>)', body_html)
         # reindex: blocks of h2

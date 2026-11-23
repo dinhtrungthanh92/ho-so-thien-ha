@@ -73,8 +73,7 @@ for ky in range(1, 11):
                 img.thumbnail((1100, 1100), Image.LANCZOS)
                 img.save(f'{ky_img_dir}/{dst_name}', 'JPEG', quality=82, optimize=True, progressive=True)
                 imgs.append(f'assets/img/ky/{dst_name}')
-                body.append(f'<figure class="art-fig"><img src="../../../assets/img/ky/{dst_name}" '
-                            f'alt="{html.escape(cap)}" loading="lazy"><figcaption>{html.escape(cap)}</figcaption></figure>')
+                body.append(f'<img src="../../../assets/img/ky/{dst_name}" alt="{html.escape(cap)}">')
         elif b[0] == 'p':
             body.append(f'<p>{b[1]}</p>')
         elif b[0] == 'ul':
