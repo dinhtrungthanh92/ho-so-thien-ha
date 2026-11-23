@@ -118,7 +118,7 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head='', comments=Fa
   <div class="wrap">
     <p><strong>Hồ Sơ Thiên Hà</strong> — thư viện chuyên đề miễn phí về lịch sử thiên hà, di sản di truyền và tâm thức vũ trụ.</p>
     <p>Tổng hợp &amp; biên soạn: <strong>Đinh Trung Thành</strong> (Jason Dinh) · <a href="mailto:dinhtrungthanh92@gmail.com">dinhtrungthanh92@gmail.com</a></p>
-    <p class="fine">10 chuyên đề · {len(arts)} kỳ · nội dung biên soạn và tổng hợp. Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu và mở rộng nhận thức.</p>
+    <p class="fine">10 chuyên đề · {len(arts)} kỳ · {sum(len(r["imgs"]) for r in arts)} hình minh họa · nội dung biên soạn và tổng hợp. Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu và mở rộng nhận thức.</p>
   </div>
 </footer>
 {comments_scripts}
@@ -322,7 +322,7 @@ about = f'''<div class="wrap block prose-page">
 <h2>Về thư viện</h2>
 <p><strong>Hồ Sơ Thiên Hà</strong> là một thư viện chuyên đề trực tuyến, chia sẻ miễn phí các nội dung về lịch sử thiên hà, di sản di truyền của loài người, các nền văn minh cổ đại và những phương pháp mở rộng nhận thức — được biên soạn thành 10 chuyên đề với {len(arts)} kỳ, sắp xếp theo một dòng thời gian liền mạch.</p>
 <h2>Cách đọc</h2>
-<p>Nếu là lần đầu, hãy bắt đầu từ <a href="../series/s1/">Chuyên đề 1 — Tiền Sử Thiên Hà</a> và đọc tuần tự tới <a href="../series/s10/">Chuyên đề 10 — Lịch Sử Bị Che Giấu &amp; Nền Văn Minh Cổ Đại</a>. Mỗi kỳ trung bình khoảng 1.700 từ, đọc chừng 7–10 phút, được thiết kế để đọc độc lập nhưng ăn khớp với mạch chung.</p>
+<p>Nếu là lần đầu, hãy bắt đầu từ <a href="../series/s1/">Chuyên đề 1 — Tiền Sử Thiên Hà</a> và đọc tuần tự tới <a href="../series/s10/">Chuyên đề 10 — Lịch Sử Bị Che Giấu &amp; Nền Văn Minh Cổ Đại</a>. Mỗi kỳ trung bình khoảng 1.650 từ, đọc chừng 7–10 phút, được thiết kế để đọc độc lập nhưng ăn khớp với mạch chung.</p>
 <h2>Chính sách nội dung</h2>
 <p>Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu, tham khảo và mở rộng nhận thức. Đây là tài liệu tổng hợp từ nhiều nguồn công khai, không phải công bố của một tổ chức khoa học chính thống. Người đọc nên giữ tinh thần phản biện, đối chiếu và tự kiểm chứng — đó cũng chính là tinh thần mà bộ hồ sơ muốn truyền tải.</p>
 <h2>Nội dung</h2>
