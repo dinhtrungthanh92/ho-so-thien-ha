@@ -118,7 +118,7 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head='', comments=Fa
   <div class="wrap">
     <p><strong>Hồ Sơ Thiên Hà</strong> — thư viện chuyên đề miễn phí về lịch sử thiên hà, di sản di truyền và tâm thức vũ trụ.</p>
     <p>Tổng hợp &amp; biên soạn: <strong>Đinh Trung Thành</strong> (Jason Dinh) · <a href="mailto:dinhtrungthanh92@gmail.com">dinhtrungthanh92@gmail.com</a></p>
-    <p class="fine">9 chuyên đề · {len(arts)} kỳ · nội dung biên soạn và tổng hợp. Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu và mở rộng nhận thức.</p>
+    <p class="fine">10 chuyên đề · {len(arts)} kỳ · nội dung biên soạn và tổng hợp. Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu và mở rộng nhận thức.</p>
   </div>
 </footer>
 {comments_scripts}
@@ -159,19 +159,19 @@ home = f'''<section class="hero">
       <div>
         <p class="eyebrow">Thư viện chuyên đề miễn phí</p>
         <h1>Hồ Sơ Thiên Hà</h1>
-        <p class="lede">Từ Lăng Kính Lyra và các Đấng Sáng Lập, tới dòng máu Anunnaki, những nền văn minh lòng đất, chương trình không gian bí mật, hòm không gian cổ đại, hồ sơ các chủng tộc — và cuối cùng là cẩm nang tâm thức vũ trụ. 9 chuyên đề, {len(arts)} kỳ, đọc theo đúng mạch.</p>
+        <p class="lede">Từ Lăng Kính Lyra và các Đấng Sáng Lập, tới dòng máu Anunnaki, những nền văn minh lòng đất, chương trình không gian bí mật, hòm không gian cổ đại, hồ sơ các chủng tộc — và cuối cùng là cẩm nang tâm thức vũ trụ. 10 chuyên đề, {len(arts)} kỳ, đọc theo đúng mạch.</p>
         <form class="hero-search" action="tim-kiem/" method="get" role="search">
           <input type="search" name="q" placeholder="Tìm trong {len(arts)} kỳ — ví dụ: anunnaki, luân xa, agartha…" aria-label="Tìm kiếm">
           <button type="submit" aria-label="Tìm">Tìm</button>
         </form>
         <p class="actions"><a class="btn" href="muc-luc/">Xem mục lục {len(arts)} kỳ</a><a class="btn ghost" href="series/">Khám phá chuyên đề</a></p>
       </div>
-      <figure class="hero-cover"><img src="assets/img/cover-full.jpg" alt="Bìa Hồ Sơ Thiên Hà — toàn tập 9 chuyên đề" fetchpriority="high"></figure>
+      <figure class="hero-cover"><img src="assets/img/cover-full.jpg" alt="Bìa Hồ Sơ Thiên Hà — toàn tập 10 chuyên đề" fetchpriority="high"></figure>
     </div>
   </div>
 </section>
 <section class="block wrap">
-  <h2 class="sec">9 chuyên đề</h2>
+  <h2 class="sec">10 chuyên đề</h2>
   <p class="sub">Mỗi chuyên đề là một tuyến truyện liền mạch. Đọc từ kỳ đầu tới kỳ cuối, hoặc nhảy vào bất kỳ chủ đề nào bạn quan tâm.</p>
   <div class="sgrid">{sercards_at()}</div>
 </section>
@@ -185,7 +185,7 @@ write('index.html', layout('Hồ Sơ Thiên Hà — Thư viện chuyên đề l�
     f'{len(arts)} kỳ trong 10 chuyên đề: lịch sử thiên hà, dòng máu Anunnaki, văn minh lòng đất, chương trình không gian, hòm không gian cổ đại, hồ sơ chủng tộc, khoa học công nghệ và cẩm nang tâm thức.', home))
 
 # ── series index + pages ─────────────────────────────────────
-sbody = '<div class="wrap block"><h1 class="page">Chuyên đề</h1><p class="sub">9 tuyến truyện, ' + str(len(arts)) + ' kỳ. Bấm vào một chuyên đề để xem danh sách kỳ.</p><div class="sgrid">' + sercards_at('../') + '</div></div>'
+sbody = '<div class="wrap block"><h1 class="page">Chuyên đề</h1><p class="sub">10 tuyến truyện, ' + str(len(arts)) + ' kỳ. Bấm vào một chuyên đề để xem danh sách kỳ.</p><div class="sgrid">' + sercards_at('../') + '</div></div>'
 write('series/index.html', layout('Chuyên đề — Hồ Sơ Thiên Hà', '10 chuyên đề về lịch sử thiên hà, di sản di truyền và tâm thức vũ trụ.', sbody, depth=1, canonical='/series/'))
 
 for s in S_ORDER:
@@ -314,13 +314,13 @@ about = f'''<div class="wrap block prose-page">
 <p>Mục tiêu không phải thuyết phục người đọc tin vào một quan điểm, mà là trao cho họ một bản đồ đầy đủ để tự đối chiếu, tự kiểm chứng và tự đặt câu hỏi.</p>
 <p>Liên hệ, góp ý hoặc báo lỗi nội dung: <a href="mailto:dinhtrungthanh92@gmail.com">dinhtrungthanh92@gmail.com</a></p>
 <h2>Về thư viện</h2>
-<p><strong>Hồ Sơ Thiên Hà</strong> là một thư viện chuyên đề trực tuyến, chia sẻ miễn phí các nội dung về lịch sử thiên hà, di sản di truyền của loài người, các nền văn minh cổ đại và những phương pháp mở rộng nhận thức — được biên soạn thành 9 chuyên đề với {len(arts)} kỳ, sắp xếp theo một dòng thời gian liền mạch.</p>
+<p><strong>Hồ Sơ Thiên Hà</strong> là một thư viện chuyên đề trực tuyến, chia sẻ miễn phí các nội dung về lịch sử thiên hà, di sản di truyền của loài người, các nền văn minh cổ đại và những phương pháp mở rộng nhận thức — được biên soạn thành 10 chuyên đề với {len(arts)} kỳ, sắp xếp theo một dòng thời gian liền mạch.</p>
 <h2>Cách đọc</h2>
 <p>Nếu là lần đầu, hãy bắt đầu từ <a href="../series/s1/">Chuyên đề 1 — Tiền Sử Thiên Hà</a> và đọc tuần tự tới <a href="../series/s9/">Chuyên đề 9 — Cẩm Nang Tâm Thức Vũ Trụ</a>. Mỗi kỳ chỉ 2.000 – 3.000 từ, đọc khoảng 10 phút, được thiết kế để đọc độc lập nhưng ăn khớp với mạch chung.</p>
 <h2>Chính sách nội dung</h2>
 <p>Toàn bộ nội dung được chia sẻ miễn phí cho mục đích nghiên cứu, tham khảo và mở rộng nhận thức. Đây là tài liệu tổng hợp từ nhiều nguồn công khai, không phải công bố của một tổ chức khoa học chính thống. Người đọc nên giữ tinh thần phản biện, đối chiếu và tự kiểm chứng — đó cũng chính là tinh thần mà bộ hồ sơ muốn truyền tải.</p>
 <h2>Nội dung</h2>
-<p>9 chuyên đề · {len(arts)} kỳ · hơn {round(sum(r["nwords"] for r in arts), -3):,} từ · {sum(len(r["imgs"]) for r in arts)} sơ đồ và hình minh họa.</p>
+<p>10 chuyên đề · {len(arts)} kỳ · hơn {round(sum(r["nwords"] for r in arts), -3):,} từ · {sum(len(r["imgs"]) for r in arts)} sơ đồ và hình minh họa.</p>
 <p class="center"><a class="btn" href="../muc-luc/">Vào mục lục</a></p>
 </div>'''
 write('gioi-thieu/index.html', layout('Giới thiệu — Hồ Sơ Thiên Hà', 'Hồ Sơ Thiên Hà: thư viện chuyên đề miễn phí về lịch sử thiên hà và tâm thức vũ trụ.', about, depth=1, canonical='/gioi-thieu/'))
