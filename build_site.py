@@ -34,8 +34,9 @@ SERIES = {
  7: ('Hồ Sơ Các Chủng Tộc', 'Lyra, Pleiades, Arcturus, Sirius, Draco, Greys và Hoàng gia Anunnaki.'),
  8: ('Khoa Học & Công Nghệ', 'Stargates, động cơ warp, med-beds, zero-point energy, vũ khí tần số.'),
  9: ('Cẩm Nang Tâm Thức Vũ Trụ', 'Tuyến tùng, luân xa, sóng não, DNA 12 sợi, thể vía và tần số 5D.'),
+ 10: ('Lịch Sử Bị Che Giấu & Nền Văn Minh Cổ Đại', 'Lemuria, Atlantis, Đại Hồng Thủy, Khem, Great Tartaria, Mud Flood, Space Arks, NWO và sự thức tỉnh.'),
 }
-S_ORDER = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+S_ORDER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 for s in S_ORDER:
     assert [r for r in arts if r['series'] == s], f'series {s} empty'
 
@@ -181,11 +182,11 @@ home = f'''<section class="hero">
   <p class="center"><a class="btn ghost" href="muc-luc/">Toàn bộ {len(arts)} kỳ →</a></p>
 </section>'''
 write('index.html', layout('Hồ Sơ Thiên Hà — Thư viện chuyên đề lịch sử thiên hà & tâm thức vũ trụ',
-    f'{len(arts)} kỳ trong 9 chuyên đề: lịch sử thiên hà, dòng máu Anunnaki, văn minh lòng đất, chương trình không gian, hòm không gian cổ đại, hồ sơ chủng tộc, khoa học công nghệ và cẩm nang tâm thức.', home))
+    f'{len(arts)} kỳ trong 10 chuyên đề: lịch sử thiên hà, dòng máu Anunnaki, văn minh lòng đất, chương trình không gian, hòm không gian cổ đại, hồ sơ chủng tộc, khoa học công nghệ và cẩm nang tâm thức.', home))
 
 # ── series index + pages ─────────────────────────────────────
 sbody = '<div class="wrap block"><h1 class="page">Chuyên đề</h1><p class="sub">9 tuyến truyện, ' + str(len(arts)) + ' kỳ. Bấm vào một chuyên đề để xem danh sách kỳ.</p><div class="sgrid">' + sercards_at('../') + '</div></div>'
-write('series/index.html', layout('Chuyên đề — Hồ Sơ Thiên Hà', '9 chuyên đề về lịch sử thiên hà, di sản di truyền và tâm thức vũ trụ.', sbody, depth=1, canonical='/series/'))
+write('series/index.html', layout('Chuyên đề — Hồ Sơ Thiên Hà', '10 chuyên đề về lịch sử thiên hà, di sản di truyền và tâm thức vũ trụ.', sbody, depth=1, canonical='/series/'))
 
 for s in S_ORDER:
     rows = [r for r in arts if r['series'] == s]
@@ -302,7 +303,7 @@ for s in S_ORDER:
   <ol>{''.join(f'<li><a href="../{r["path"]}/"><span class="toc-num">{r["ky"]}</span> {esc(r["title"])}</a></li>' for r in rows)}</ol>
 </section>'''
 toc += '</div>'
-write('muc-luc/index.html', layout(f'Mục lục {len(arts)} kỳ — Hồ Sơ Thiên Hà', f'Danh sách đầy đủ {len(arts)} kỳ thuộc 9 chuyên đề.', toc, depth=1, canonical='/muc-luc/'))
+write('muc-luc/index.html', layout(f'Mục lục {len(arts)} kỳ — Hồ Sơ Thiên Hà', f'Danh sách đầy đủ {len(arts)} kỳ thuộc 10 chuyên đề.', toc, depth=1, canonical='/muc-luc/'))
 
 # ── about ────────────────────────────────────────────────────
 about = f'''<div class="wrap block prose-page">
