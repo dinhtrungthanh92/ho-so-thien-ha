@@ -36,7 +36,10 @@
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href=""><span class="mark">✦</span> Hồ Sơ Thiên Hà</a>
-    <nav class="nav"><a href="./">Trang chủ</a><a href="series/">Chuyên đề</a><a href="muc-luc/">Mục lục</a><a href="gioi-thieu/">Giới thiệu</a><a href="tim-kiem/">Tìm kiếm</a><a class="nav-search" href="tim-kiem/" aria-label="Tìm kiếm">⌕</a></nav>
+    <nav class="nav"><a href="./">Trang chủ</a><a href="series/">Chuyên đề</a><a href="muc-luc/">Mục lục</a><a href="gioi-thieu/">Giới thiệu</a><a href="tim-kiem/">Tìm kiếm</a><button class="theme-toggle" id="themeToggle" aria-label="Chuyển đổi giao diện" title="Chế độ đọc">
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button><a class="nav-search" href="tim-kiem/" aria-label="Tìm kiếm">⌕</a></nav>
   </div>
 </header>
 <main>
@@ -50,5 +53,34 @@
   </div>
 </footer>
 
+    <script>
+(function() {
+  const toggle = document.getElementById("themeToggle");
+  const sunIcon = toggle.querySelector(".icon-sun");
+  const moonIcon = toggle.querySelector(".icon-moon");
+  const html = document.documentElement;
+  
+  function applyTheme(theme) {
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("hsth-theme", theme);
+    if (theme === "dark") {
+      sunIcon.style.display = "block";
+      moonIcon.style.display = "none";
+    } else {
+      sunIcon.style.display = "none";
+      moonIcon.style.display = "block";
+    }
+  }
+  
+  const saved = localStorage.getItem("hsth-theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(saved || (prefersDark ? "dark" : "light"));
+  
+  toggle.addEventListener("click", () => {
+    const current = html.getAttribute("data-theme");
+    applyTheme(current === "dark" ? "light" : "dark");
+  });
+})();
+</script>
 </body>
 </html>

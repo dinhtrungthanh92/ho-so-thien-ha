@@ -70,6 +70,9 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head='', comments=Fa
         )
     nav = ''.join(f'<a href="{r}{h.lstrip("/")}">{n}</a>' if h != '/' else f'<a href="{r or "./"}">{n}</a>'
                   for h, n in NAV)
+    theme_toggle = '<button class="theme-toggle" id="themeToggle" aria-label="Chuyển đổi giao diện" title="Chế độ đọc">\n  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>\n  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>\n</button>'
+    theme_script = '<script>\n(function() {\n  const toggle = document.getElementById("themeToggle");\n  const sunIcon = toggle.querySelector(".icon-sun");\n  const moonIcon = toggle.querySelector(".icon-moon");\n  const html = document.documentElement;\n  \n  function applyTheme(theme) {\n    html.setAttribute("data-theme", theme);\n    localStorage.setItem("hsth-theme", theme);\n    if (theme === "dark") {\n      sunIcon.style.display = "block";\n      moonIcon.style.display = "none";\n    } else {\n      sunIcon.style.display = "none";\n      moonIcon.style.display = "block";\n    }\n  }\n  \n  const saved = localStorage.getItem("hsth-theme");\n  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;\n  applyTheme(saved || (prefersDark ? "dark" : "light"));\n  \n  toggle.addEventListener("click", () => {\n    const current = html.getAttribute("data-theme");\n    applyTheme(current === "dark" ? "light" : "dark");\n  });\n})();\n</script>'
+
     return f'''<!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -108,7 +111,7 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head='', comments=Fa
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="{r}"><span class="mark">✦</span> Hồ Sơ Thiên Hà</a>
-    <nav class="nav">{nav}<a class="nav-search" href="{r}tim-kiem/" aria-label="Tìm kiếm">⌕</a></nav>
+    <nav class="nav">{nav}{theme_toggle}<a class="nav-search" href="{r}tim-kiem/" aria-label="Tìm kiếm">⌕</a></nav>
   </div>
 </header>
 <main>
@@ -122,6 +125,7 @@ def layout(title, desc, body, depth=0, canonical='/', extra_head='', comments=Fa
   </div>
 </footer>
 {comments_scripts}
+    {theme_script}
 </body>
 </html>'''
 

@@ -201,3 +201,113 @@ h1.page{font-size:clamp(30px,4.4vw,44px);letter-spacing:-.8px;font-weight:600;li
 .nav-search{font-size:17px;line-height:1;color:var(--ink2) !important;padding:0 2px}
 .nav-search:hover{color:var(--blue) !important}
 @media(max-width:600px){.hero-search{flex-direction:column}.hero-search input{padding:13px 16px}.hero-search button{padding:12px}}
+/* ── theme variables ── */
+:root{
+  --ink:#101828; --ink2:#2b3648; --muted:#5d6b82;
+  --navy:#111d33; --navy2:#1b2c4a; --blue:#2f5da8; --blue-lt:#eaf1fb;
+  --gold:#c19a3e; --line:#e2e8f1; --bg:#fbfcfe; --card:#fff;
+  --max:1120px;
+}
+
+/* dark mode */
+[data-theme="dark"]{
+  --ink:#f0f2f5; --ink2:#d0d5dd; --muted:#98a2b3;
+  --navy:#f0f2f5; --navy2:#d0d5dd; --blue:#6fa3e8; --blue-lt:#1e2d4a;
+  --gold:#d4a843; --line:#2d3a4f; --bg:#0b1220; --card:#121a2e;
+}
+
+*[data-theme="dark"] .hero{
+  background:radial-gradient(circle at 50% -10%,#1a3a5c 0%,#0d1b33 45%,#040810 100%);
+}
+*[data-theme="dark"] .hero::after{opacity:.6}
+
+*[data-theme="dark"] .site-head{
+  background:rgba(11,18,32,.92);border-bottom:1px solid var(--line);
+}
+*[data-theme="dark"] .btn.ghost{
+  border-color:#ffffff33;
+}
+*[data-theme="dark"] .btn.ghost:hover{background:#ffffff12}
+
+*[data-theme="dark"] .stats-wrap{
+  background:#ffffff1a;
+}
+*[data-theme="dark"] .stats-wrap li{
+  background:#1a2a4acc;
+}
+*[data-theme="dark"] .scard,
+*[data-theme="dark"] .card,
+*[data-theme="dark"] .kylist a{
+  background:var(--card);
+  border-color:var(--line);
+}
+*[data-theme="dark"] .scard:hover,
+*[data-theme="dark"] .card:hover,
+*[data-theme="dark"] .kylist a:hover{
+  border-color:#3d5a8a;
+  box-shadow:0 12px 28px -16px #000;
+}
+
+*[data-theme="dark"] .prose p{color:#d0d5dd}
+*[data-theme="dark"] .prose h2{color:var(--ink);border-left-color:var(--gold)}
+*[data-theme="dark"] .prose h3{color:var(--ink2)}
+*[data-theme="dark"] .prose strong{color:var(--ink)}
+*[data-theme="dark"] .prose em{color:var(--ink2)}
+*[data-theme="dark"] .prose blockquote{border-left-color:var(--line);color:var(--muted)}
+
+*[data-theme="dark"] .gallery .gwrap figure{background:#000;border-color:var(--line)}
+
+*[data-theme="dark"] .pbtn{
+  background:var(--card);border-color:var(--line);
+}
+*[data-theme="dark"] .pbtn:hover{border-color:#3d5a8a}
+*[data-theme="dark"] .pbtn b{color:var(--ink)}
+*[data-theme="dark"] .pbtn small{color:var(--muted)}
+
+*[data-theme="dark"] .toc-sec li a:hover{background:var(--blue-lt);color:var(--blue)}
+
+*[data-theme="dark"] .site-foot{
+  border-top-color:var(--line);background:var(--card);
+}
+*[data-theme="dark"] .site-foot p{color:var(--ink2)}
+*[data-theme="dark"] .site-foot a{color:var(--blue)}
+
+*[data-theme="dark"] .comments input,
+*[data-theme="dark"] .comments textarea{
+  background:var(--card);border-color:var(--line);color:var(--ink);
+}
+*[data-theme="dark"] .comments input:focus,
+*[data-theme="dark"] .comments textarea:focus{border-color:var(--blue)}
+
+*[data-theme="dark"] .search-box input{
+  background:var(--card);border-color:var(--line);color:var(--ink);
+  box-shadow:0 2px 10px -6px #000;
+}
+*[data-theme="dark"] .search-box input:focus{
+  border-color:var(--blue);box-shadow:0 4px 18px -8px #6fa3e866;
+}
+
+*[data-theme="dark"] .s-item{border-bottom-color:var(--line)}
+*[data-theme="dark"] .s-item:hover h3{color:var(--blue)}
+*[data-theme="dark"] .s-item h3{color:var(--ink)}
+*[data-theme="dark"] .s-item mark{background:#2d3a4f;color:var(--ink)}
+
+*[data-theme="dark"] .hero-search{
+  background:#ffffff10;border-color:#ffffff20;
+}
+*[data-theme="dark"] .hero-search input{
+  color:#fff;
+}
+*[data-theme="dark"] .hero-search input::placeholder{color:#7a8ca8}
+
+/* theme toggle button */
+.theme-toggle{
+  background:none;border:none;padding:6px 8px;cursor:pointer;
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+  color:var(--ink2);transition:background .15s,color .15s;
+}
+.theme-toggle:hover{background:var(--blue-lt);color:var(--blue)}
+.theme-toggle svg{width:20px;height:20px;display:block}
+[data-theme="dark"] .theme-toggle:hover{background:var(--blue-lt);color:var(--blue)}
+[data-theme="dark"] .theme-toggle{color:var(--muted)}
+[data-theme="dark"] .theme-toggle svg{stroke:currentColor}
